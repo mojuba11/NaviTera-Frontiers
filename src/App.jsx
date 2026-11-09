@@ -13,7 +13,10 @@ import {
   Mail,
   MapPin,
   Clock,
-  ChevronRight
+  ChevronRight,
+  Activity,
+  Award,
+  Layers
 } from 'lucide-react';
 
 // Custom inline SVG icons for reliable social media rendering without dependency errors
@@ -232,31 +235,56 @@ export default function App() {
         </div>
       </section>
 
-      {/* STATS BAR */}
-      <section className="bg-[#0A131B] border-y border-slate-800/80 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-800">
-            <div className="pt-4 md:pt-0 md:px-8 flex items-baseline space-x-4">
-              <span className="text-4xl sm:text-5xl font-light text-white font-mono">24/7</span>
+      {/* REDESIGNED STATS BAR SECTION */}
+      <section className="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+        <div className="bg-gradient-to-r from-[#0A131B] via-[#0E1F2E] to-[#0A131B] border border-[#C89D4B]/30 rounded-2xl shadow-2xl p-8 sm:p-10 backdrop-blur-xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-800/80">
+            
+            {/* Stat Item 1 */}
+            <div className="pt-4 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
+              <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
+                <Activity className="w-6 h-6" />
+              </div>
               <div>
-                <span className="block text-xs uppercase tracking-widest text-[#C89D4B] font-semibold">OPERATIONAL READINESS</span>
-                <span className="text-xs text-slate-400 block mt-1">Continuous response & deployment</span>
+                <div className="flex items-baseline space-x-2">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">24/7</span>
+                  <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Active</span>
+                </div>
+                <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Operational Readiness</span>
+                <span className="text-xs text-slate-400 block mt-0.5 font-light">Continuous response & deployment</span>
               </div>
             </div>
-            <div className="pt-6 md:pt-0 md:px-8 flex items-baseline space-x-4">
-              <span className="text-4xl sm:text-5xl font-light text-white font-mono">5</span>
+
+            {/* Stat Item 2 */}
+            <div className="pt-6 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
+              <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
+                <Layers className="w-6 h-6" />
+              </div>
               <div>
-                <span className="block text-xs uppercase tracking-widest text-[#C89D4B] font-semibold">CORE SERVICE DIVISIONS</span>
-                <span className="text-xs text-slate-400 block mt-1">Security, Search, Leasing & Energy</span>
+                <div className="flex items-baseline space-x-2">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">5</span>
+                  <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Pillars</span>
+                </div>
+                <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Core Service Divisions</span>
+                <span className="text-xs text-slate-400 block mt-0.5 font-light">Security, Search, Leasing & Energy</span>
               </div>
             </div>
-            <div className="pt-6 md:pt-0 md:px-8 flex items-baseline space-x-4">
-              <span className="text-4xl sm:text-5xl font-light text-white font-mono">360°</span>
+
+            {/* Stat Item 3 */}
+            <div className="pt-6 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
+              <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
+                <Award className="w-6 h-6" />
+              </div>
               <div>
-                <span className="block text-xs uppercase tracking-widest text-[#C89D4B] font-semibold">MARINE SUPPORT</span>
-                <span className="text-xs text-slate-400 block mt-1">End-to-end vessel & offshore protection</span>
+                <div className="flex items-baseline space-x-2">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">360°</span>
+                  <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Secure</span>
+                </div>
+                <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Marine Support</span>
+                <span className="text-xs text-slate-400 block mt-0.5 font-light">End-to-end vessel & offshore protection</span>
               </div>
             </div>
+
           </div>
         </div>
       </section>
