@@ -141,13 +141,14 @@ export default function App() {
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0B1924]/90 backdrop-blur-md border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('hero')}>
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('hero')}>
             <img 
               src="/NaviTera-logo.jpg" 
               alt="NaviTera Logo" 
               className="h-12 w-auto object-contain rounded-md"
               onError={(e) => { e.target.src = 'https://placehold.co/120x40/0B1924/C89D4B?text=NaviTera'; }}
             />
+            <span className="text-xl font-bold text-white tracking-tight">NaviTera</span>
           </div>
 
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
