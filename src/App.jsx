@@ -410,23 +410,16 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
-            {/* Visual Image Banner with Badges */}
+            {/* Visual Image Container with Click & Hover Zoom Effects */}
             <div className="lg:col-span-5 relative">
-              <div className="relative z-10 bg-[#0B1924] p-3.5 shadow-2xl rounded-sm">
+              <div className="relative z-10 bg-[#0B1924] p-2 shadow-2xl rounded-lg overflow-hidden group cursor-pointer">
                 <img
                   src="/NaviTera Security Escort Vessel.png"
                   alt="NaviTera Security Escort Vessel"
-                  className="w-full h-[520px] object-cover"
+                  className="w-full h-full max-h-[500px] object-contain rounded transition-transform duration-500 ease-out group-hover:scale-105 active:scale-95"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/90 to-transparent p-6 text-white">
-                  <div className="flex items-center space-x-2 mb-1">
-                    <span className="w-2 h-2 rounded-full bg-[#C89D4B] animate-ping" />
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#C89D4B]">Active Operating Fleet</span>
-                  </div>
-                  <span className="text-xl font-extrabold tracking-tight uppercase block text-white">CHALLENGING WATERS COMMAND</span>
-                </div>
               </div>
-              <div className="absolute -top-5 -left-5 w-full h-full border-2 border-[#C89D4B] -z-0 hidden sm:block" />
+              <div className="absolute -top-4 -left-4 w-full h-full border-2 border-[#C89D4B] -z-0 hidden sm:block rounded-lg" />
             </div>
 
             {/* Content Column */}
@@ -434,13 +427,12 @@ export default function App() {
               <div className="flex items-center space-x-3 mb-2">
                 <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
                 <span className="text-xs uppercase tracking-[0.25em] font-extrabold text-[#b0883d]">
-                  ABOUT NAVITERA MARITIME
+                  ABOUT NAVITERRA MARITIME
                 </span>
               </div>
               
-              <h2 className="text-3xl sm:text-5xl font-light text-[#0B1924] tracking-tight leading-tight">
-                Local intelligence. <br />
-                <span className="font-extrabold text-[#0B1924]">Global execution standards.</span>
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0B1924] tracking-tight leading-tight">
+                Global execution standards.
               </h2>
               
               <p className="text-stone-700 leading-relaxed text-base sm:text-lg font-light">
@@ -451,7 +443,7 @@ export default function App() {
                 Operating strictly within international maritime security protocols, ISM, and ISPS codes, we serve global shipping lines, energy majors, and offshore terminal operators with unwavering reliability.
               </p>
 
-              {/* Redesigned Grid Pillars */}
+              {/* Grid Pillars */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-stone-200">
                 <div className="p-4 bg-stone-50 border border-stone-200 rounded-lg space-y-1">
                   <h4 className="font-bold text-sm text-[#0B1924] flex items-center space-x-2">
