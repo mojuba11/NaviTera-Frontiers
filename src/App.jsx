@@ -1,43 +1,13 @@
 import React, { useState } from 'react';
 import { 
-  Shield, 
-  Search, 
-  Ship, 
-  TrendingUp, 
   ArrowUpRight, 
   CheckCircle2, 
-  Compass, 
   Menu, 
-  X,
-  ChevronDown,
-  ExternalLink
+  X
 } from 'lucide-react';
-
-// Custom SVG Emblem matching NaviTera logo
-const NaviTeraLogoSvg = ({ className = "w-10 h-10" }) => (
-  <svg viewBox="0 0 200 200" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="100" cy="100" r="65" stroke="#7E878C" strokeWidth="12" />
-    <path d="M100 15 V35 M100 165 V185 M15 100 H35 M165 100 H185" stroke="#7E878C" strokeWidth="12" strokeLinecap="round"/>
-    <path d="M40 40 L54 54 M146 146 L160 160 M40 160 L54 146 M146 54 L160 40" stroke="#7E878C" strokeWidth="12" strokeLinecap="round"/>
-    <polygon points="100,5 112,32 100,26 88,32" fill="#8E979D" />
-    <polygon points="100,195 112,168 100,174 88,168" fill="#8E979D" />
-    <polygon points="5,100 32,88 26,100 32,112" fill="#8E979D" />
-    <polygon points="195,100 168,88 174,100 168,112" fill="#8E979D" />
-    <circle cx="100" cy="100" r="54" fill="#0E4875" />
-    <circle cx="100" cy="100" r="54" stroke="#FFFFFF" strokeWidth="3" />
-    <g fill="#A0A9B0">
-      <path d="M68 62 H78 V138 H68 Z" />
-      <path d="M122 62 H132 V138 H122 Z" />
-      <path d="M78 62 L124 122 H132 L86 62 Z" />
-      <path d="M84 62 H116 V72 H84 Z" />
-      <path d="M95 72 H105 V122 L100 138 L95 122 Z" />
-    </g>
-  </svg>
-);
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState('all');
   const [selectedService, setSelectedService] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -54,7 +24,7 @@ export default function App() {
       title: 'Security Escort Vessels',
       category: 'protection',
       description: 'Purpose-ready marine assets and trained teams for safe passage through high-risk waters and offshore zones.',
-      detailedDesc: 'NaviTera provides armed and unarmed Security Escort Vessels (SEVs) fully compliant with international maritime security codes. Our crews are trained to maintain tactical perimeter defense, offering 24/7 protection for commercial tankers, FPSOs, and cargo ships operating in high-risk territorial waters.',
+      detailedDesc: 'NaviTera provides armed and unarmed Security Escort Vessels (SEVs) fully compliant with international maritime security codes.',
       image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
       badge: 'High Risk Zones'
     },
@@ -63,7 +33,7 @@ export default function App() {
       title: 'Stowaway Search',
       category: 'security',
       description: 'Methodical, discreet vessel sweeps that protect your crew, cargo, schedule, and port compliance.',
-      detailedDesc: 'Our specialized tactical search teams conduct exhaustive pre-departure stowaway sweeps across rudders, void spaces, engine rooms, and cargo holds. We deliver legal verification certificates to prevent costly port delays and heavy international penalties.',
+      detailedDesc: 'Our specialized tactical search teams conduct exhaustive pre-departure stowaway sweeps across rudders, void spaces, engine rooms, and holds.',
       image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80',
       badge: 'Port Compliance'
     },
@@ -72,7 +42,7 @@ export default function App() {
       title: 'Vessel Leasing & Equipment',
       category: 'logistics',
       description: 'Flexible access to vetted marine vessels, operational equipment, and dependable offshore support.',
-      detailedDesc: 'We maintain an extensive network of charter-ready maritime assets, including Platform Supply Vessels (PSVs), Anchor Handling Tug Supply (AHTS) vessels, fast crew supply boats, and heavy-duty deck gear custom-fitted to your specific offshore requirements.',
+      detailedDesc: 'We maintain an extensive network of charter-ready maritime assets custom-fitted to your specific offshore requirements.',
       image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
       badge: 'Asset Management'
     },
@@ -81,7 +51,7 @@ export default function App() {
       title: 'Crude Oil Trading Brokerage',
       category: 'commercial',
       description: 'Commercial introductions and transaction coordination built on market insight, diligence, and trust.',
-      detailedDesc: 'Facilitating seamless energy trade logistics across the Gulf of Guinea. NaviTera connects vetted buyers and sellers of crude oil and refined petroleum products while mitigating counterparty risk and ensuring strict adherence to international maritime trade standards.',
+      detailedDesc: 'Facilitating seamless energy trade logistics across the Gulf of Guinea. NaviTera connects vetted buyers and sellers.',
       image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80',
       badge: 'Energy Market'
     },
@@ -90,15 +60,11 @@ export default function App() {
       title: 'Vessels & Offshore Protection',
       category: 'protection',
       description: 'Comprehensive static and dynamic security architectures tailored for FPSOs, rigs, and marine terminals.',
-      detailedDesc: 'Delivering end-to-end maritime defense strategies, physical vessel hardening, remote surveillance integration, and fast-response escort boats to safeguard critical energy infrastructure and offshore drilling rigs against modern maritime threats.',
+      detailedDesc: 'Delivering end-to-end maritime defense strategies, physical vessel hardening, and fast-response escort boats.',
       image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=80',
       badge: 'Tactical Defense'
     }
   ];
-
-  const filteredServices = activeTab === 'all' 
-    ? services 
-    : services.filter(s => s.category === activeTab);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -167,18 +133,23 @@ export default function App() {
         )}
       </header>
 
-      {/* HERO */}
+      {/* HERO WITH BACKGROUND VIDEO */}
       <section id="hero" className="relative min-h-screen pt-28 pb-20 flex items-center justify-center overflow-hidden bg-[#0B1924]">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=2000&q=80" 
-            alt="Maritime Patrol Vessel" 
-            className="w-full h-full object-cover opacity-30 scale-105"
-          />
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-40 scale-105"
+          >
+            <source src="/backgroundvideo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/75 to-[#0B1924]/90" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-left">
           <div className="max-w-3xl">
             <div className="flex items-center space-x-3 mb-6">
               <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
