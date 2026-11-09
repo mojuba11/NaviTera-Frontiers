@@ -405,58 +405,66 @@ export default function App() {
       </section>
 
       {/* ABOUT SECTION */}
-      <section id="about" className="bg-white text-[#0B1924] py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+      <section id="about" className="bg-white text-[#0B1924] py-24 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
+            {/* Visual Image Banner with Badges */}
             <div className="lg:col-span-5 relative">
-              <div className="relative z-10 bg-[#0B1924] p-2 shadow-2xl">
+              <div className="relative z-10 bg-[#0B1924] p-3.5 shadow-2xl rounded-sm">
                 <img
                   src="/NaviTera Security Escort Vessel.png"
                   alt="NaviTera Security Escort Vessel"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[520px] object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-[#C89D4B] text-[#0B1924] p-6">
-                  <span className="text-xs font-bold uppercase tracking-widest block mb-1">Operating Standard</span>
-                  <span className="text-2xl font-black tracking-tight uppercase">CHALLENGING WATERS</span>
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/90 to-transparent p-6 text-white">
+                  <div className="flex items-center space-x-2 mb-1">
+                    <span className="w-2 h-2 rounded-full bg-[#C89D4B] animate-ping" />
+                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#C89D4B]">Active Operating Fleet</span>
+                  </div>
+                  <span className="text-xl font-extrabold tracking-tight uppercase block text-white">CHALLENGING WATERS COMMAND</span>
                 </div>
               </div>
-              <div className="absolute -top-6 -left-6 w-full h-full border-2 border-[#C89D4B] -z-0 hidden sm:block" />
+              <div className="absolute -top-5 -left-5 w-full h-full border-2 border-[#C89D4B] -z-0 hidden sm:block" />
             </div>
 
-            <div className="lg:col-span-7">
-              <div className="flex items-center space-x-3 mb-4">
-                <span className="w-8 h-[2px] bg-[#C89D4B]"></span>
-                <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#b0883d]">ABOUT NAVITERRA</span>
+            {/* Content Column */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="flex items-center space-x-3 mb-2">
+                <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
+                <span className="text-xs uppercase tracking-[0.25em] font-extrabold text-[#b0883d]">
+                  ABOUT NAVITERA MARITIME
+                </span>
               </div>
               
-              <h2 className="text-3xl sm:text-5xl font-light text-[#0B1924] mb-6 tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-5xl font-light text-[#0B1924] tracking-tight leading-tight">
                 Local intelligence. <br />
-                <span className="font-bold">Global standards.</span>
+                <span className="font-extrabold text-[#0B1924]">Global execution standards.</span>
               </h2>
               
-              <p className="text-stone-700 leading-relaxed mb-6 text-base sm:text-lg">
-                NaviTera is a premier maritime services company engineered to resolve complex offshore and commercial challenges across West African waters with absolute clarity, speed, and command control.
+              <p className="text-stone-700 leading-relaxed text-base sm:text-lg font-light">
+                NaviTera is a premier maritime services company engineered to resolve complex offshore, security, and commercial challenges across West African waters with absolute clarity, speed, and command control.
               </p>
 
-              <p className="text-stone-600 leading-relaxed mb-8 text-sm sm:text-base">
+              <p className="text-stone-600 leading-relaxed text-sm sm:text-base">
                 Operating strictly within international maritime security protocols, ISM, and ISPS codes, we serve global shipping lines, energy majors, and offshore terminal operators with unwavering reliability.
               </p>
 
+              {/* Redesigned Grid Pillars */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-stone-200">
-                <div>
+                <div className="p-4 bg-stone-50 border border-stone-200 rounded-lg space-y-1">
                   <h4 className="font-bold text-sm text-[#0B1924] flex items-center space-x-2">
                     <span className="w-2 h-2 bg-[#C89D4B] inline-block"></span>
-                    <span>Safety-led execution</span>
+                    <span>Safety-Led Execution</span>
                   </h4>
-                  <p className="text-xs text-stone-500 mt-1 pl-4">Strict compliance with international ISM & ISPS security codes.</p>
+                  <p className="text-xs text-stone-500 pl-4">Strict compliance with international ISM & ISPS security codes.</p>
                 </div>
-                <div>
+                <div className="p-4 bg-stone-50 border border-stone-200 rounded-lg space-y-1">
                   <h4 className="font-bold text-sm text-[#0B1924] flex items-center space-x-2">
                     <span className="w-2 h-2 bg-[#C89D4B] inline-block"></span>
-                    <span>Vetted marine partners</span>
+                    <span>Vetted Marine Assets</span>
                   </h4>
-                  <p className="text-xs text-stone-500 mt-1 pl-4">Rigorous audits for all crews, equipment, and charter hulls.</p>
+                  <p className="text-xs text-stone-500 pl-4">Rigorous audits for all crews, physical gear, and charter hulls.</p>
                 </div>
               </div>
             </div>
@@ -800,21 +808,28 @@ export default function App() {
       {/* DETAILED SERVICE MODAL */}
       {selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white shadow-2xl overflow-hidden relative text-left">
+          <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white shadow-2xl overflow-hidden relative text-left rounded-lg">
+            
+            {/* Modal Header with Close Button */}
             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-[#0A131B]">
               <div className="flex items-center space-x-3">
-                <span className="text-xs font-mono font-bold text-[#C89D4B]">{selectedService.id}</span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#C89D4B] px-2.5 py-0.5 border border-[#C89D4B]/30 bg-[#C89D4B]/10">
+                <span className="text-xs font-mono font-bold text-[#C89D4B]">DIV {selectedService.id}</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#C89D4B] px-2.5 py-0.5 border border-[#C89D4B]/30 bg-[#C89D4B]/10 rounded">
                   {selectedService.badge}
                 </span>
               </div>
-              <button onClick={() => setSelectedService(null)} className="text-slate-400 hover:text-white p-1">
+              <button 
+                onClick={() => setSelectedService(null)} 
+                className="text-slate-400 hover:text-white hover:bg-slate-800 p-2 rounded-full transition-colors"
+                aria-label="Close modal"
+              >
                 <X className="w-6 h-6" />
               </button>
             </div>
 
-            <div className="p-6 sm:p-8 space-y-6">
-              <div className="relative h-48 sm:h-64 overflow-hidden border border-slate-800">
+            {/* Modal Content */}
+            <div className="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
+              <div className="relative h-48 sm:h-64 overflow-hidden border border-slate-800 rounded">
                 <img 
                   src={selectedService.image} 
                   alt={selectedService.title} 
@@ -837,23 +852,28 @@ export default function App() {
                 </ul>
               </div>
 
-              <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+              {/* Modal Footer Controls */}
+              <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button
                   onClick={() => {
                     setFormData({ ...formData, service: selectedService.title });
                     setSelectedService(null);
                     scrollToSection('contact');
                   }}
-                  className="bg-[#C89D4B] hover:bg-[#b0883d] text-[#0B1924] px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center space-x-2 transition-colors"
+                  className="w-full sm:w-auto bg-[#C89D4B] hover:bg-[#b0883d] text-[#0B1924] px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center justify-center space-x-2 transition-colors shadow-lg"
                 >
                   <span>Request this service</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
-                <button onClick={() => setSelectedService(null)} className="text-xs text-slate-400 hover:text-white uppercase tracking-wider">
+                <button 
+                  onClick={() => setSelectedService(null)} 
+                  className="w-full sm:w-auto text-xs text-slate-400 hover:text-white border border-slate-700 hover:border-slate-500 px-5 py-3 uppercase tracking-wider font-semibold transition-colors"
+                >
                   Close overview
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       )}
