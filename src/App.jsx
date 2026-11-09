@@ -61,7 +61,7 @@ export default function App() {
 
   // ADD YOUR PHONE NUMBER HERE:
   // Format: Include country code, NO plus sign (+), NO leading zeros, NO spaces or dashes.
-  const whatsappNumber = '2348000000000';
+  const whatsappNumber = '2348153043160';
 
   const handleSendWhatsapp = (e) => {
     e.preventDefault();
