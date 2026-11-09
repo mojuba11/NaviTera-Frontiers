@@ -256,6 +256,39 @@ export default function App() {
             </div>
 
             {/* Stat Item 2 */}
+            <div className="pt-6 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
+              <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
+                <Award className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="flex items-baseline space-x-2">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">5</span>
+                  <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Core</span>
+                </div>
+                <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Service Divisions</span>
+                <span className="text-xs text-slate-400 block mt-0.5 font-light">Security, Search, Leasing & Energy</span>
+              </div>
+            </div>
+
+            {/* Stat Item 3 */}
+            <div className="pt-6 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
+              <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
+                <Layers className="w-6 h-6" />
+              </div>
+              <div>
+                <div className="flex items-baseline space-x-2">
+                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">360°</span>
+                  <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Full</span>
+                </div>
+                <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Marine Support</span>
+                <span className="text-xs text-slate-400 block mt-0.5 font-light">End-to-end vessel & offshore protection</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* REDESIGNED SERVICES SECTION */}
       <section id="services" className="bg-[#050D14] text-white py-28 relative overflow-hidden">
         {/* Subtle background glow effects */}
