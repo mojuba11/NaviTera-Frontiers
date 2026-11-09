@@ -13,31 +13,8 @@ import {
   Mail,
   MapPin,
   Clock,
-  ChevronRight,
-  Linkedin
+  ChevronRight
 } from 'lucide-react';
-
-// Custom inline SVG icons for social platforms to ensure 100% build reliability
-const TwitterXIcon = ({ className = "w-4 h-4" }) => (
-  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-  </svg>
-);
-
-const InstagramIcon = ({ className = "w-4 h-4" }) => (
-  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
-  </svg>
-);
-
-const YoutubeIcon = ({ className = "w-4 h-4" }) => (
-  <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/>
-    <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="currentColor"/>
-  </svg>
-);
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -145,7 +122,6 @@ export default function App() {
               src="/NaviTera-logo.jpg" 
               alt="NaviTera Logo" 
               className="h-12 w-auto object-contain rounded-md"
-              onError={(e) => { e.target.src = 'https://placehold.co/120x40/0B1924/C89D4B?text=NaviTera'; }}
             />
           </div>
 
@@ -184,7 +160,7 @@ export default function App() {
         )}
       </header>
 
-      {/* HERO WITH BACKGROUND VIDEO */}
+      {/* HERO WITH BACKGROUND VIDEO (LEFT ALIGNED) */}
       <section id="hero" className="relative min-h-screen pt-28 pb-20 flex items-center justify-start overflow-hidden bg-[#0B1924]">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video 
@@ -263,7 +239,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES SECTION */}
+      {/* REDESIGNED SERVICES SECTION */}
       <section id="services" className="bg-[#F4F1EA] text-[#0B1924] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-stone-300 text-left">
@@ -279,6 +255,7 @@ export default function App() {
             </p>
           </div>
 
+          {/* Interactive Category Filter Tabs */}
           <div className="flex flex-wrap gap-2 mb-12">
             {[
               { id: 'all', label: 'All Services' },
@@ -301,6 +278,7 @@ export default function App() {
             ))}
           </div>
 
+          {/* Beautiful Enhanced Service Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredServices.map((service) => (
               <div
@@ -308,6 +286,7 @@ export default function App() {
                 onClick={() => setSelectedService(service)}
                 className="group relative bg-[#0B1924] text-white p-8 min-h-[460px] flex flex-col justify-between cursor-pointer shadow-2xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[#C89D4B]/20"
               >
+                {/* Background Image with Hover Zoom */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                   <img 
                     src={service.image} 
@@ -317,6 +296,7 @@ export default function App() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/80 to-[#0B1924]/40" />
                 </div>
 
+                {/* Top Badge & Number */}
                 <div className="relative z-10 flex justify-between items-center">
                   <span className="text-xs font-mono font-bold text-[#C89D4B] tracking-widest">{service.id}</span>
                   <div className="w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] group-hover:border-[#C89D4B] transition-all duration-300 shadow-lg">
@@ -324,6 +304,7 @@ export default function App() {
                   </div>
                 </div>
 
+                {/* Middle Content */}
                 <div className="relative z-10 pt-16 text-left">
                   <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-wider font-semibold bg-[#C89D4B]/20 text-[#C89D4B] border border-[#C89D4B]/30 mb-4">
                     {service.badge}
@@ -332,6 +313,7 @@ export default function App() {
                   <p className="text-slate-300 text-sm font-light leading-relaxed mb-6">{service.description}</p>
                 </div>
 
+                {/* Bottom Highlight Preview */}
                 <div className="relative z-10 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-[#C89D4B] font-medium">
                   <span className="flex items-center space-x-1 group-hover:underline">
                     <span>Explore full specifications</span>
@@ -344,7 +326,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* ABOUT SECTION */}
+      {/* IMPROVED ABOUT SECTION */}
       <section id="about" className="bg-white text-[#0B1924] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -437,11 +419,12 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT & INQUIRY SECTION */}
+      {/* ENHANCED CONTACT & INQUIRY SECTION */}
       <section id="contact" className="bg-[#0A131B] text-white py-24 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             
+            {/* Left Contact Information */}
             <div className="lg:col-span-5 space-y-8">
               <div>
                 <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">START A CONVERSATION</span>
@@ -498,6 +481,7 @@ export default function App() {
               </div>
             </div>
 
+            {/* Right White Form Box */}
             <div className="lg:col-span-7 bg-white text-[#0B1924] p-8 sm:p-12 shadow-2xl">
               {formSubmitted ? (
                 <div className="py-16 text-center animate-in fade-in duration-500">
@@ -615,133 +599,18 @@ export default function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#080F16] text-slate-400 py-20 border-t border-slate-800 text-left">
+      <footer className="bg-[#080F16] text-slate-400 py-16 border-t border-slate-800 text-left">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-slate-800">
-            
-            <div className="md:col-span-5 space-y-4">
-              <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('hero')}>
-                <img 
-                  src="/NaviTera-logo.jpg" 
-                  alt="NaviTera Logo" 
-                  className="h-10 w-auto object-contain rounded-md"
-                  onError={(e) => { e.target.src = 'https://placehold.co/100x40/0B1924/C89D4B?text=NaviTera'; }}
-                />
-              </div>
-              <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-light">
-                Integrated maritime services engineered for safety, compliance, and swift operational deployment across West African waters and international shipping lanes.
-              </p>
-              
-              <div className="pt-2 flex items-center space-x-4">
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label="LinkedIn"
-                  className="w-10 h-10 rounded-none bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label="Twitter"
-                  className="w-10 h-10 rounded-none bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
-                >
-                  <TwitterXIcon className="w-4 h-4" />
-                </a>
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label="Instagram"
-                  className="w-10 h-10 rounded-none bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
-                >
-                  <InstagramIcon className="w-4 h-4" />
-                </a>
-                <a 
-                  href="https://youtube.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label="YouTube"
-                  className="w-10 h-10 rounded-none bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
-                >
-                  <YoutubeIcon className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            <div className="md:col-span-3 space-y-4">
-              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#C89D4B] block">
-                NAVIGATION
-              </span>
-              <ul className="space-y-3 text-xs font-medium">
-                <li>
-                  <button onClick={() => scrollToSection('hero')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>Home</span>
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>About NaviTera</span>
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>Marine Services</span>
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('operations')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>Operating Standards</span>
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>Request Service / Contact</span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <div className="md:col-span-4 space-y-4">
-              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#C89D4B] block">
-                24/7 COMMAND DESK
-              </span>
-              <div className="space-y-3 text-xs">
-                <div className="flex items-start space-x-3">
-                  <Mail className="w-4 h-4 text-[#C89D4B] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-slate-500 block text-[10px] uppercase">Email Enquiries</span>
-                    <a href="mailto:operations@naviterra.com" className="text-white font-mono hover:text-[#C89D4B] transition-colors">
-                      operations@naviterra.com
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-3">
-                  <MapPin className="w-4 h-4 text-[#C89D4B] shrink-0 mt-0.5" />
-                  <div>
-                    <span className="text-slate-500 block text-[10px] uppercase">Headquarters</span>
-                    <span className="text-slate-300">Victoria Island, Lagos, Nigeria</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-4 sm:space-y-0">
-            <p>© {new Date().getFullYear()} NaviTera. All rights reserved.</p>
-            <div className="flex space-x-6">
-              <span className="hover:text-slate-400 cursor-pointer transition-colors">Privacy Policy</span>
-              <span className="hover:text-slate-400 cursor-pointer transition-colors">Terms of Service</span>
-              <span className="hover:text-slate-400 cursor-pointer transition-colors">ISM / ISPS Compliance</span>
+          <div className="flex flex-col md:flex-row justify-between items-center pb-8 border-b border-slate-800">
+            <span className="text-xl font-bold text-white mb-4 md:mb-0">NaviTera</span>
+            <div className="flex space-x-6 text-xs font-medium">
+              <button onClick={() => scrollToSection('about')} className="hover:text-white">About</button>
+              <button onClick={() => scrollToSection('services')} className="hover:text-white">Services</button>
+              <button onClick={() => scrollToSection('operations')} className="hover:text-white">Operations</button>
+              <button onClick={() => scrollToSection('contact')} className="hover:text-white">Contact</button>
             </div>
           </div>
-
+          <p className="text-xs text-center text-slate-600 mt-8">© {new Date().getFullYear()} NaviTera. All rights reserved.</p>
         </div>
       </footer>
 
@@ -756,4 +625,52 @@ export default function App() {
                   {selectedService.badge}
                 </span>
               </div>
-              <button onClick={() => setSelectedService(
+              <button onClick={() => setSelectedService(null)} className="text-slate-400 hover:text-white p-1">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="p-6 sm:p-8 space-y-6">
+              <div className="relative h-48 sm:h-64 overflow-hidden border border-slate-800">
+                <img src={selectedService.image} alt={selectedService.title} className="w-full h-full object-cover" />
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-3">{selectedService.title}</h3>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">{selectedService.detailedDesc}</p>
+                
+                <h4 className="text-xs font-bold uppercase tracking-widest text-[#C89D4B] mb-3">Key Operational Highlights</h4>
+                <ul className="space-y-2 mb-6">
+                  {selectedService.highlights.map((item, idx) => (
+                    <li key={idx} className="flex items-center space-x-2 text-xs text-slate-300">
+                      <CheckCircle2 className="w-4 h-4 text-[#C89D4B]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+                <button
+                  onClick={() => {
+                    setFormData({ ...formData, service: selectedService.title });
+                    setSelectedService(null);
+                    scrollToSection('contact');
+                  }}
+                  className="bg-[#C89D4B] hover:bg-[#b0883d] text-[#0B1924] px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center space-x-2 transition-colors"
+                >
+                  <span>Request this service</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+                <button onClick={() => setSelectedService(null)} className="text-xs text-slate-400 hover:text-white uppercase tracking-wider">
+                  Close overview
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+    </div>
+  );
+}
