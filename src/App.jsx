@@ -48,8 +48,11 @@ export default function App() {
   const [whatsappOpen, setWhatsappOpen] = useState(false);
   const [whatsappMessage, setWhatsappMessage] = useState('');
   
-  // Replace with your operational WhatsApp phone number (with country code, no + or spaces)
-  const whatsappNumber = '2341234567890';
+  // ADD YOUR PHONE NUMBER HERE:
+  // Format: Include country code, NO plus sign (+), NO leading zeros, NO spaces or dashes.
+  // Example for Nigeria (+234 801 234 5678): '2348012345678'
+  // Example for US (+1 555 123 4567): '15551234567'
+  const whatsappNumber = '2348000000000';
 
   const handleSendWhatsapp = (e) => {
     e.preventDefault();
@@ -807,7 +810,7 @@ export default function App() {
       {/* DETAILED SERVICE MODAL */}
       {selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
-          {
+          <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white overflow-hidden shadow-2xl relative rounded-xl">
             
             {/* Modal Header with Close Button */}
             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-[#0A131B]">
@@ -874,12 +877,6 @@ export default function App() {
             </div>
 
           </div>
-        </div>
-      )}
-
-    </div>
-  );
-}
         </div>
       )}
 
