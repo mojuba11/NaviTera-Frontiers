@@ -45,15 +45,21 @@ export default function App() {
   const [activeServiceTab, setActiveServiceTab] = useState('all');
   const [selectedService, setSelectedService] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    phone: '',
-    service: 'Security Escort Vessels',
-    urgency: 'Standard (48 hrs)',
-    message: ''
-  });
+  const [whatsappOpen, setWhatsappOpen] = useState(false);
+  const [whatsappMessage, setWhatsappMessage] = useState('');
+  
+  // Replace with your operational WhatsApp phone number (with country code, no + or spaces)
+  const whatsappNumber = '2341234567890';
+
+  const handleSendWhatsapp = (e) => {
+    e.preventDefault();
+    const text = whatsappMessage.trim() || 'Hello NaviTera, I have an inquiry regarding your maritime services.';
+    const encodedText = encodeURIComponent(text);
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+    window.open(whatsappUrl, '_blank');
+    setWhatsappMessage('');
+    setWhatsappOpen(false);
+  };
 
   const services = [
     {
@@ -801,7 +807,7 @@ export default function App() {
       {/* DETAILED SERVICE MODAL */}
       {selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white shadow-2xl overflow-hidden relative text-left rounded-lg">
+          {
             
             {/* Modal Header with Close Button */}
             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-[#0A131B]">
@@ -870,6 +876,82 @@ export default function App() {
           </div>
         </div>
       )}
+
+    </div>
+  );
+}
+        </div>
+      )}
+
+      {/* FLOATING WHATSAPP CHATBOT */}
+      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        {/* WhatsApp Popup Window */}
+        {whatsappOpen && (
+          <div className="mb-4 w-80 sm:w-96 bg-[#0B1924] border border-slate-700 rounded-xl shadow-2xl overflow-hidden text-left animate-in fade-in slide-in-from-bottom-5 duration-300">
+            {/* Header */}
+            <div className="bg-[#0A131B] border-b border-slate-800 p-4 flex items-center justify-between">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+                  <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.14 4.162 4.195-1.101z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white">NaviTera Command Desk</h4>
+                  <span className="text-[11px] text-emerald-400 font-medium flex items-center space-x-1">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>Typically replies instantly</span>
+                  </span>
+                </div>
+              </div>
+              <button 
+                onClick={() => setWhatsappOpen(false)}
+                className="text-slate-400 hover:text-white p-1"
+                aria-label="Close chat"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Body */}
+            <div className="p-4 bg-[#080F16] space-y-3">
+              <div className="bg-slate-800/80 p-3 rounded-lg text-xs text-slate-200 font-light border border-slate-700 max-w-[85%]">
+                Hello! Welcome to NaviTera. How can our maritime command desk assist you today?
+              </div>
+
+              <form onSubmit={handleSendWhatsapp} className="mt-3 space-y-3">
+                <textarea
+                  rows={3}
+                  value={whatsappMessage}
+                  onChange={(e) => setWhatsappMessage(e.target.value)}
+                  placeholder="Type your message here..."
+                  className="w-full bg-[#0B1924] border border-slate-700 rounded-lg p-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#C89D4B] resize-none"
+                ></textarea>
+
+                <button
+                  type="submit"
+                  className="w-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold uppercase tracking-wider py-2.5 rounded-lg flex items-center justify-center space-x-2 transition-colors shadow-lg"
+                >
+                  <span>Start WhatsApp Chat</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+              </form>
+            </div>
+          </div>
+        )}
+
+        {/* Floating Trigger Button */}
+        <button
+          onClick={() => setWhatsappOpen(!whatsappOpen)}
+          className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3.5 rounded-full shadow-2xl flex items-center space-x-3 transition-all duration-300 transform hover:scale-105 active:scale-95 border border-emerald-400/30"
+          aria-label="Talk to us on WhatsApp"
+        >
+          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-1.14 4.162 4.195-1.101z"/>
+          </svg>
+          <span className="text-xs font-bold uppercase tracking-wider">Talk to us</span>
+        </button>
+      </div>
 
     </div>
   );
