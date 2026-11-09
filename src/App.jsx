@@ -605,7 +605,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* FOOTER */}
+      {/* IMPROVED FOOTER WITH LOGO AND SOCIAL ICONS */}
       <footer className="bg-[#080F16] text-slate-400 py-20 border-t border-slate-800 text-left">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
@@ -614,14 +614,13 @@ export default function App() {
             
             {/* Brand & Mission Column */}
             <div className="md:col-span-5 space-y-4">
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 cursor-pointer" onClick={() => scrollToSection('hero')}>
                 <img 
                   src="/NaviTera-logo.jpg" 
                   alt="NaviTera Logo" 
                   className="h-10 w-auto object-contain rounded-md"
                   onError={(e) => { e.target.src = 'https://placehold.co/100x40/0B1924/C89D4B?text=NaviTera'; }}
                 />
-                <span className="text-xl font-bold text-white tracking-tight">NaviTera</span>
               </div>
               <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-light">
                 Integrated maritime services engineered for safety, compliance, and swift operational deployment across West African waters and international shipping lanes.
