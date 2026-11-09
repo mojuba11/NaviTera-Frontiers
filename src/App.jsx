@@ -256,58 +256,36 @@ export default function App() {
             </div>
 
             {/* Stat Item 2 */}
-            <div className="pt-6 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
-              <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
-                <Layers className="w-6 h-6" />
-              </div>
-              <div>
-                <div className="flex items-baseline space-x-2">
-                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">5</span>
-                  <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Pillars</span>
-                </div>
-                <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Core Service Divisions</span>
-                <span className="text-xs text-slate-400 block mt-0.5 font-light">Security, Search, Leasing & Energy</span>
-              </div>
-            </div>
-
-            {/* Stat Item 3 */}
-            <div className="pt-6 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
-              <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
-                <Award className="w-6 h-6" />
-              </div>
-              <div>
-                <div className="flex items-baseline space-x-2">
-                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">360°</span>
-                  <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Secure</span>
-                </div>
-                <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Marine Support</span>
-                <span className="text-xs text-slate-400 block mt-0.5 font-light">End-to-end vessel & offshore protection</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES SECTION */}
-      <section id="services" className="bg-[#F4F1EA] text-[#0B1924] py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-stone-300 text-left">
+      {/* REDESIGNED SERVICES SECTION */}
+      <section id="services" className="bg-[#050D14] text-white py-28 relative overflow-hidden">
+        {/* Subtle background glow effects */}
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C89D4B]/5 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          
+          {/* Section Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 pb-8 border-b border-slate-800 text-left">
             <div>
               <div className="flex items-center space-x-3 mb-4">
-                <span className="w-8 h-[2px] bg-[#C89D4B]"></span>
-                <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#b0883d]">WHAT WE DO</span>
+                <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
+                <span className="text-xs uppercase tracking-[0.3em] font-bold text-[#C89D4B]">
+                  OPERATIONAL DIVISIONS & CAPABILITIES
+                </span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-light tracking-tight">Marine expertise. <br /><span className="font-bold">One trusted partner.</span></h2>
+              <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white">
+                Marine expertise. <br />
+                <span className="font-bold text-[#C89D4B]">One trusted command.</span>
+              </h2>
             </div>
-            <p className="mt-6 md:mt-0 text-stone-600 max-w-md text-sm sm:text-base leading-relaxed text-left">
-              Explore our specialized maritime divisions designed to safeguard assets and streamline commercial operations.
+            <p className="mt-6 lg:mt-0 text-slate-400 max-w-md text-sm sm:text-base leading-relaxed text-left font-light">
+              Purpose-built maritime assets, tactical defense teams, and trade brokerage engineered for uncompromising safety and regulatory compliance.
             </p>
           </div>
 
-          <div className="flex flex-wrap gap-2 mb-12">
+          {/* Interactive Category Filter Tabs */}
+          <div className="flex flex-wrap gap-3 mb-16">
             {[
-              { id: 'all', label: 'All Services' },
+              { id: 'all', label: 'All Capabilities' },
               { id: 'protection', label: 'Vessel Protection' },
               { id: 'security', label: 'Stowaway Sweeps' },
               { id: 'logistics', label: 'Leasing & Logistics' },
@@ -316,10 +294,10 @@ export default function App() {
               <button
                 key={tab.id}
                 onClick={() => setActiveServiceTab(tab.id)}
-                className={`px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+                className={`px-6 py-3 text-xs font-semibold uppercase tracking-widest transition-all duration-300 border ${
                   activeServiceTab === tab.id
-                    ? 'bg-[#0B1924] text-white shadow-lg scale-105'
-                    : 'bg-stone-200/80 text-stone-700 hover:bg-stone-300'
+                    ? 'bg-[#C89D4B] text-[#0B1924] border-[#C89D4B] shadow-xl scale-105'
+                    : 'bg-[#0B1924] text-slate-300 border-slate-800 hover:border-slate-600 hover:text-white'
                 }`}
               >
                 {tab.label}
@@ -327,46 +305,69 @@ export default function App() {
             ))}
           </div>
 
+          {/* Bento Grid / Modern Cards Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredServices.map((service) => (
+            {filteredServices.map((service, index) => (
               <div
                 key={service.id}
                 onClick={() => setSelectedService(service)}
-                className="group relative bg-[#0B1924] text-white p-8 min-h-[460px] flex flex-col justify-between cursor-pointer shadow-2xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[#C89D4B]/20"
+                className={`group relative bg-[#0A131B] border border-slate-800 rounded-xl p-8 flex flex-col justify-between cursor-pointer overflow-hidden transition-all duration-500 hover:border-[#C89D4B]/60 hover:shadow-2xl hover:shadow-[#C89D4B]/10 hover:-translate-y-1.5 ${
+                  index === 0 ? 'lg:col-span-2' : ''
+                }`}
               >
+                {/* Background Image with Cinematic Overlay */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                   <img 
                     src={service.image} 
                     alt={service.title} 
-                    className="w-full h-full object-cover opacity-35 group-hover:scale-110 group-hover:opacity-45 transition-all duration-700" 
+                    className="w-full h-full object-cover opacity-25 group-hover:scale-110 group-hover:opacity-35 transition-all duration-700" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/80 to-[#0B1924]/40" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0A131B] via-[#0A131B]/90 to-[#0A131B]/40" />
                 </div>
 
-                <div className="relative z-10 flex justify-between items-center">
-                  <span className="text-xs font-mono font-bold text-[#C89D4B] tracking-widest">{service.id}</span>
-                  <div className="w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] group-hover:border-[#C89D4B] transition-all duration-300 shadow-lg">
-                    <ArrowUpRight className="w-5 h-5 transform group-hover:rotate-45 transition-transform duration-300" />
+                {/* Card Top: ID & Badge */}
+                <div className="relative z-10 flex justify-between items-center mb-12">
+                  <span className="text-sm font-mono font-bold text-[#C89D4B] bg-[#C89D4B]/10 px-3 py-1 border border-[#C89D4B]/20 rounded-md">
+                    DIV {service.id}
+                  </span>
+                  <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-slate-800/80 text-slate-300 border border-slate-700 rounded-md">
+                    {service.badge}
+                  </span>
+                </div>
+
+                {/* Card Middle: Title & Description */}
+                <div className="relative z-10 text-left mb-8">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:text-[#C89D4B] transition-colors leading-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+
+                  {/* Highlights Mini Chips */}
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {service.highlights.slice(0, 2).map((h, i) => (
+                      <span key={i} className="text-[11px] font-medium bg-slate-900/80 text-slate-300 px-2.5 py-1 rounded border border-slate-800">
+                        ✓ {h}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                <div className="relative z-10 pt-16 text-left">
-                  <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-wider font-semibold bg-[#C89D4B]/20 text-[#C89D4B] border border-[#C89D4B]/30 mb-4">
-                    {service.badge}
-                  </span>
-                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#C89D4B] transition-colors">{service.title}</h3>
-                  <p className="text-slate-300 text-sm font-light leading-relaxed mb-6">{service.description}</p>
-                </div>
-
-                <div className="relative z-10 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-[#C89D4B] font-medium">
-                  <span className="flex items-center space-x-1 group-hover:underline">
-                    <span>Explore full specifications</span>
+                {/* Card Bottom: Action Link */}
+                <div className="relative z-10 pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#C89D4B]">
+                  <span className="group-hover:translate-x-1 transition-transform flex items-center space-x-2">
+                    <span>View full specifications</span>
                     <ChevronRight className="w-4 h-4" />
                   </span>
+                  <div className="w-10 h-10 rounded-full border border-slate-700 bg-slate-900/80 flex items-center justify-center text-white group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] group-hover:border-[#C89D4B] transition-all">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
