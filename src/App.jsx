@@ -350,8 +350,8 @@ export default function App() {
             <div className="lg:col-span-5 relative">
               <div className="relative z-10 bg-[#0B1924] p-2 shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1000&q=80"
-                  alt="NaviTera Operations"
+                  src="/NaviTera Security Escort Vessel.png"
+                  alt="NaviTera Security Escort Vessel"
                   className="w-full h-[500px] object-cover"
                 />
                 <div className="absolute bottom-0 left-0 right-0 bg-[#C89D4B] text-[#0B1924] p-6">
