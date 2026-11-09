@@ -13,11 +13,10 @@ import {
   Mail,
   MapPin,
   Clock,
-  ChevronRight,
-  Linkedin
+  ChevronRight
 } from 'lucide-react';
 
-// Custom inline SVG icons for Facebook and Instagram to ensure 100% build reliability
+// Custom inline SVG icons for reliable social media rendering without dependency errors
 const FacebookIcon = ({ className = "w-4 h-4" }) => (
   <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
     <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -29,6 +28,12 @@ const InstagramIcon = ({ className = "w-4 h-4" }) => (
     <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
     <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+  </svg>
+);
+
+const LinkedinIcon = ({ className = "w-4 h-4" }) => (
+  <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
   </svg>
 );
 
@@ -629,40 +634,31 @@ export default function App() {
               
               <div className="pt-2 flex items-center space-x-4">
                 <a 
-                  href="https://linkedin.com" 
+                  href="https://facebook.com" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  aria-label="LinkedIn"
-                  className="w-10 h-10 rounded-none bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
+                  aria-label="Facebook"
+                  className="w-10 h-10 bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
                 >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  aria-label="Twitter"
-                  className="w-10 h-10 rounded-none bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
-                >
-                  <Twitter className="w-4 h-4" />
+                  <FacebookIcon className="w-4 h-4" />
                 </a>
                 <a 
                   href="https://instagram.com" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   aria-label="Instagram"
-                  className="w-10 h-10 rounded-none bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
+                  className="w-10 h-10 bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
                 >
-                  <Instagram className="w-4 h-4" />
+                  <InstagramIcon className="w-4 h-4" />
                 </a>
                 <a 
-                  href="https://youtube.com" 
+                  href="https://linkedin.com" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  aria-label="YouTube"
-                  className="w-10 h-10 rounded-none bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
+                  aria-label="LinkedIn"
+                  className="w-10 h-10 bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
                 >
-                  <Youtube className="w-4 h-4" />
+                  <LinkedinIcon className="w-4 h-4" />
                 </a>
               </div>
             </div>
