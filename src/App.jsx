@@ -48,10 +48,19 @@ export default function App() {
   const [whatsappOpen, setWhatsappOpen] = useState(false);
   const [whatsappMessage, setWhatsappMessage] = useState('');
   
+  // Contact Form State initialization (Prevents blank blue screen crash)
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    phone: '',
+    service: 'Security Escort Vessels',
+    urgency: 'Standard (48 hrs)',
+    message: ''
+  });
+
   // ADD YOUR PHONE NUMBER HERE:
   // Format: Include country code, NO plus sign (+), NO leading zeros, NO spaces or dashes.
-  // Example for Nigeria (+234 801 234 5678): '2348012345678'
-  // Example for US (+1 555 123 4567): '15551234567'
   const whatsappNumber = '2348000000000';
 
   const handleSendWhatsapp = (e) => {
