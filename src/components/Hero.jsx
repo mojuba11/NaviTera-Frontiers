@@ -4,17 +4,22 @@ import { ArrowUpRight } from 'lucide-react';
 export default function Hero({ scrollToSection }) {
   return (
     <section id="hero" className="relative min-h-screen pt-28 pb-20 flex items-center justify-center overflow-hidden bg-[#0B1924]">
-      {/* Background Image Overlay */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=2000&q=80" 
-          alt="Maritime Patrol Vessel" 
-          className="w-full h-full object-cover opacity-30 scale-105"
-        />
+      {/* Background Video with Gradient Overlay */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-40 scale-105"
+        >
+          <source src="/backgroundvideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute inset-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/75 to-[#0B1924]/90" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-left">
         <div className="max-w-3xl">
           <div className="flex items-center space-x-3 mb-6">
             <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
@@ -34,7 +39,7 @@ export default function Hero({ scrollToSection }) {
 
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-5">
             <button 
-              onClick={() => scrollToSection('services')}
+              onClick={() => scrollToSection && scrollToSection('services')}
               className="bg-[#C89D4B] hover:bg-[#b0883d] text-[#0B1924] font-semibold px-7 py-4 text-sm tracking-wider uppercase transition-all flex items-center justify-center space-x-3 shadow-xl"
             >
               <span>Explore our services</span>
@@ -42,7 +47,7 @@ export default function Hero({ scrollToSection }) {
             </button>
 
             <button 
-              onClick={() => scrollToSection('about')}
+              onClick={() => scrollToSection && scrollToSection('about')}
               className="border border-slate-600 hover:border-slate-300 text-white font-medium px-7 py-4 text-sm tracking-wider uppercase transition-all text-center"
             >
               Discover NaviTera
