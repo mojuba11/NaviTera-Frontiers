@@ -3,18 +3,31 @@ import {
   ArrowUpRight, 
   CheckCircle2, 
   Menu, 
-  X
+  X,
+  Shield,
+  Search,
+  Ship,
+  TrendingUp,
+  Compass,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  ChevronRight
 } from 'lucide-react';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeServiceTab, setActiveServiceTab] = useState('all');
   const [selectedService, setSelectedService] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     company: '',
     email: '',
+    phone: '',
     service: 'Security Escort Vessels',
+    urgency: 'Standard (48 hrs)',
     message: ''
   });
 
@@ -23,48 +36,62 @@ export default function App() {
       id: '01',
       title: 'Security Escort Vessels',
       category: 'protection',
-      description: 'Purpose-ready marine assets and trained teams for safe passage through high-risk waters and offshore zones.',
-      detailedDesc: 'NaviTera provides armed and unarmed Security Escort Vessels (SEVs) fully compliant with international maritime security codes.',
+      icon: <Shield className="w-6 h-6 text-[#C89D4B]" />,
+      description: 'Purpose-ready marine assets and tactical teams for safe passage through high-risk waters and offshore zones.',
+      detailedDesc: 'NaviTera provides armed and unarmed Security Escort Vessels (SEVs) fully compliant with international maritime security codes. Our crews are trained to maintain tactical perimeter defense, offering 24/7 protection for commercial tankers, FPSOs, and cargo ships operating in high-risk territorial waters.',
       image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
-      badge: 'High Risk Zones'
+      badge: 'High Risk Zones',
+      highlights: ['Armed & Unarmed Tactical Teams', '24/7 Radar & AIS Tracking', 'ISM & ISPS Compliant']
     },
     {
       id: '02',
       title: 'Stowaway Search',
       category: 'security',
+      icon: <Search className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Methodical, discreet vessel sweeps that protect your crew, cargo, schedule, and port compliance.',
-      detailedDesc: 'Our specialized tactical search teams conduct exhaustive pre-departure stowaway sweeps across rudders, void spaces, engine rooms, and holds.',
+      detailedDesc: 'Our specialized tactical search teams conduct exhaustive pre-departure stowaway sweeps across rudders, void spaces, engine rooms, and cargo holds. We deliver legal verification certificates to prevent costly port delays and heavy international penalties.',
       image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Port Compliance'
+      badge: 'Port Compliance',
+      highlights: ['Exhaustive Void & Rudder Sweeps', 'Official Clearance Certification', 'Zero Port Delay Guarantee']
     },
     {
       id: '03',
       title: 'Vessel Leasing & Equipment',
       category: 'logistics',
+      icon: <Ship className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Flexible access to vetted marine vessels, operational equipment, and dependable offshore support.',
-      detailedDesc: 'We maintain an extensive network of charter-ready maritime assets custom-fitted to your specific offshore requirements.',
+      detailedDesc: 'We maintain an extensive network of charter-ready maritime assets, including Platform Supply Vessels (PSVs), Anchor Handling Tug Supply (AHTS) vessels, fast crew supply boats, and heavy-duty deck gear custom-fitted to your specific offshore requirements.',
       image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Asset Management'
+      badge: 'Asset Management',
+      highlights: ['PSVs & AHTS Fleet Access', 'Custom Deck Equipment Outfitting', 'Fully Vetted Crews & Hulls']
     },
     {
       id: '04',
       title: 'Crude Oil Trading Brokerage',
       category: 'commercial',
+      icon: <TrendingUp className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Commercial introductions and transaction coordination built on market insight, diligence, and trust.',
-      detailedDesc: 'Facilitating seamless energy trade logistics across the Gulf of Guinea. NaviTera connects vetted buyers and sellers.',
+      detailedDesc: 'Facilitating seamless energy trade logistics across the Gulf of Guinea. NaviTera connects vetted buyers and sellers of crude oil and refined petroleum products while mitigating counterparty risk and ensuring strict adherence to international maritime trade standards.',
       image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Energy Market'
+      badge: 'Energy Market',
+      highlights: ['Vetted Buyer/Seller Introductions', 'Counterparty Risk Mitigation', 'Strict Regulatory Adherence']
     },
     {
       id: '05',
       title: 'Vessels & Offshore Protection',
       category: 'protection',
+      icon: <Compass className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Comprehensive static and dynamic security architectures tailored for FPSOs, rigs, and marine terminals.',
-      detailedDesc: 'Delivering end-to-end maritime defense strategies, physical vessel hardening, and fast-response escort boats.',
+      detailedDesc: 'Delivering end-to-end maritime defense strategies, physical vessel hardening, remote surveillance integration, and fast-response escort boats to safeguard critical energy infrastructure and offshore drilling rigs against modern maritime threats.',
       image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Tactical Defense'
+      badge: 'Tactical Defense',
+      highlights: ['FPSO & Rig Hardening', 'Remote Surveillance Integration', 'Rapid Intervention Craft']
     }
   ];
+
+  const filteredServices = activeServiceTab === 'all' 
+    ? services 
+    : services.filter(s => s.category === activeServiceTab);
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -72,7 +99,7 @@ export default function App() {
     setFormSubmitted(true);
     setTimeout(() => {
       setFormSubmitted(false);
-      setFormData({ name: '', company: '', email: '', service: 'Security Escort Vessels', message: '' });
+      setFormData({ name: '', company: '', email: '', phone: '', service: 'Security Escort Vessels', urgency: 'Standard (48 hrs)', message: '' });
     }, 5000);
   };
 
@@ -133,8 +160,8 @@ export default function App() {
         )}
       </header>
 
-      {/* HERO WITH BACKGROUND VIDEO */}
-      <section id="hero" className="relative min-h-screen pt-28 pb-20 flex items-center justify-center overflow-hidden bg-[#0B1924]">
+      {/* HERO WITH BACKGROUND VIDEO (LEFT ALIGNED) */}
+      <section id="hero" className="relative min-h-screen pt-28 pb-20 flex items-center justify-start overflow-hidden bg-[#0B1924]">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <video 
             autoPlay 
@@ -149,7 +176,7 @@ export default function App() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/75 to-[#0B1924]/90" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-left">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-left w-full">
           <div className="max-w-3xl">
             <div className="flex items-center space-x-3 mb-6">
               <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
@@ -161,7 +188,7 @@ export default function App() {
               Certainty at sea. <br />
               <span className="font-semibold text-white">Strength in every</span> operation.
             </h1>
-            <p className="text-lg sm:text-xl text-slate-300 font-light leading-relaxed mb-10 max-w-2xl">
+            <p className="text-lg sm:text-xl text-slate-300 font-light leading-relaxed mb-10 max-w-2xl text-left">
               Delivering secure, reliable, and commercially sound marine solutions across the Gulf of Guinea and beyond.
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-5">
@@ -195,10 +222,10 @@ export default function App() {
               </div>
             </div>
             <div className="pt-6 md:pt-0 md:px-8 flex items-baseline space-x-4">
-              <span className="text-4xl sm:text-5xl font-light text-white font-mono">4</span>
+              <span className="text-4xl sm:text-5xl font-light text-white font-mono">5</span>
               <div>
-                <span className="block text-xs uppercase tracking-widest text-[#C89D4B] font-semibold">CORE SERVICE AREAS</span>
-                <span className="text-xs text-slate-400 block mt-1">Security, Search, Logistics & Energy Trading</span>
+                <span className="block text-xs uppercase tracking-widest text-[#C89D4B] font-semibold">CORE SERVICE DIVISIONS</span>
+                <span className="text-xs text-slate-400 block mt-1">Security, Search, Leasing & Energy</span>
               </div>
             </div>
             <div className="pt-6 md:pt-0 md:px-8 flex items-baseline space-x-4">
@@ -212,43 +239,86 @@ export default function App() {
         </div>
       </section>
 
-      {/* SERVICES */}
+      {/* REDESIGNED SERVICES SECTION */}
       <section id="services" className="bg-[#F4F1EA] text-[#0B1924] py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-8 border-b border-stone-300">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 pb-8 border-b border-stone-300 text-left">
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <span className="w-8 h-[2px] bg-[#C89D4B]"></span>
                 <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#b0883d]">WHAT WE DO</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-light">Marine expertise. <br /><span className="font-bold">One trusted partner.</span></h2>
+              <h2 className="text-3xl sm:text-5xl font-light tracking-tight">Marine expertise. <br /><span className="font-bold">One trusted partner.</span></h2>
             </div>
-            <p className="mt-6 md:mt-0 text-stone-600 max-w-md text-sm sm:text-base">
-              From vessel security to energy trading support, our services ensure dependable execution.
+            <p className="mt-6 md:mt-0 text-stone-600 max-w-md text-sm sm:text-base leading-relaxed text-left">
+              Explore our specialized maritime divisions designed to safeguard assets and streamline commercial operations.
             </p>
           </div>
 
+          {/* Interactive Category Filter Tabs */}
+          <div className="flex flex-wrap gap-2 mb-12">
+            {[
+              { id: 'all', label: 'All Services' },
+              { id: 'protection', label: 'Vessel Protection' },
+              { id: 'security', label: 'Stowaway Sweeps' },
+              { id: 'logistics', label: 'Leasing & Logistics' },
+              { id: 'commercial', label: 'Energy Brokerage' },
+            ].map(tab => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveServiceTab(tab.id)}
+                className={`px-5 py-2.5 text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+                  activeServiceTab === tab.id
+                    ? 'bg-[#0B1924] text-white shadow-lg scale-105'
+                    : 'bg-stone-200/80 text-stone-700 hover:bg-stone-300'
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Beautiful Enhanced Service Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service) => (
+            {filteredServices.map((service) => (
               <div
                 key={service.id}
                 onClick={() => setSelectedService(service)}
-                className="group relative bg-[#0B1924] text-white p-6 min-h-[400px] flex flex-col justify-between cursor-pointer shadow-xl overflow-hidden"
+                className="group relative bg-[#0B1924] text-white p-8 min-h-[460px] flex flex-col justify-between cursor-pointer shadow-2xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-[#C89D4B]/20"
               >
-                <div className="absolute inset-0 z-0">
-                  <img src={service.image} alt={service.title} className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/60 to-transparent" />
+                {/* Background Image with Hover Zoom */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover opacity-35 group-hover:scale-110 group-hover:opacity-45 transition-all duration-700" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/80 to-[#0B1924]/40" />
                 </div>
-                <div className="relative z-10 flex justify-between items-start">
-                  <span className="text-xs font-mono font-bold text-[#C89D4B]">{service.id}</span>
-                  <div className="w-10 h-10 rounded-full border border-white/20 bg-black/40 flex items-center justify-center text-white group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
-                    <ArrowUpRight className="w-5 h-5" />
+
+                {/* Top Badge & Number */}
+                <div className="relative z-10 flex justify-between items-center">
+                  <span className="text-xs font-mono font-bold text-[#C89D4B] tracking-widest">{service.id}</span>
+                  <div className="w-12 h-12 rounded-full border border-white/20 bg-black/50 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] group-hover:border-[#C89D4B] transition-all duration-300 shadow-lg">
+                    <ArrowUpRight className="w-5 h-5 transform group-hover:rotate-45 transition-transform duration-300" />
                   </div>
                 </div>
-                <div className="relative z-10 pt-12">
-                  <span className="inline-block px-2.5 py-1 text-[10px] uppercase font-semibold bg-[#C89D4B]/20 text-[#C89D4B] mb-3">{service.badge}</span>
-                  <h3 className="text-2xl font-bold text-white mb-2">{service.title}</h3>
-                  <p className="text-slate-300 text-sm font-light">{service.description}</p>
+
+                {/* Middle Content */}
+                <div className="relative z-10 pt-16 text-left">
+                  <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-wider font-semibold bg-[#C89D4B]/20 text-[#C89D4B] border border-[#C89D4B]/30 mb-4">
+                    {service.badge}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#C89D4B] transition-colors">{service.title}</h3>
+                  <p className="text-slate-300 text-sm font-light leading-relaxed mb-6">{service.description}</p>
+                </div>
+
+                {/* Bottom Highlight Preview */}
+                <div className="relative z-10 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-[#C89D4B] font-medium">
+                  <span className="flex items-center space-x-1 group-hover:underline">
+                    <span>Explore full specifications</span>
+                    <ChevronRight className="w-4 h-4" />
+                  </span>
                 </div>
               </div>
             ))}
@@ -256,20 +326,24 @@ export default function App() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* IMPROVED ABOUT SECTION */}
       <section id="about" className="bg-white text-[#0B1924] py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
             <div className="lg:col-span-5 relative">
-              <img
-                src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1000&q=80"
-                alt="NaviTera Operations"
-                className="w-full h-[480px] object-cover shadow-2xl"
-              />
-              <div className="absolute bottom-0 left-0 right-0 bg-[#C89D4B] text-[#0B1924] p-6">
-                <span className="text-xs font-bold uppercase block mb-1">Built for</span>
-                <span className="text-2xl font-black uppercase">CHALLENGING WATERS</span>
+              <div className="relative z-10 bg-[#0B1924] p-2 shadow-2xl">
+                <img
+                  src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1000&q=80"
+                  alt="NaviTera Operations"
+                  className="w-full h-[500px] object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-[#C89D4B] text-[#0B1924] p-6">
+                  <span className="text-xs font-bold uppercase tracking-widest block mb-1">Operating Standard</span>
+                  <span className="text-2xl font-black tracking-tight uppercase">CHALLENGING WATERS</span>
+                </div>
               </div>
+              <div className="absolute -top-6 -left-6 w-full h-full border-2 border-[#C89D4B] -z-0 hidden sm:block" />
             </div>
 
             <div className="lg:col-span-7">
@@ -277,48 +351,63 @@ export default function App() {
                 <span className="w-8 h-[2px] bg-[#C89D4B]"></span>
                 <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#b0883d]">ABOUT NAVITERRA</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-light text-[#0B1924] mb-6">
-                Local intelligence. <br /><span className="font-bold">Global standards.</span>
+              
+              <h2 className="text-3xl sm:text-5xl font-light text-[#0B1924] mb-6 tracking-tight leading-tight">
+                Local intelligence. <br />
+                <span className="font-bold">Global standards.</span>
               </h2>
-              <p className="text-stone-600 leading-relaxed mb-6">
-                NaviTera is a maritime services company built to solve complex offshore and commercial challenges with clarity, speed, and control.
+              
+              <p className="text-stone-700 leading-relaxed mb-6 text-base sm:text-lg">
+                NaviTera is a premier maritime services company engineered to resolve complex offshore and commercial challenges across West African waters with absolute clarity, speed, and command control.
               </p>
+
+              <p className="text-stone-600 leading-relaxed mb-8 text-sm sm:text-base">
+                Operating strictly within international maritime security protocols, ISM, and ISPS codes, we serve global shipping lines, energy majors, and offshore terminal operators with unwavering reliability.
+              </p>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-stone-200">
                 <div>
-                  <h4 className="font-bold text-sm text-[#0B1924]">01 Safety-led execution</h4>
-                  <p className="text-xs text-stone-500 mt-1">Compliance with international ISM & ISPS codes.</p>
+                  <h4 className="font-bold text-sm text-[#0B1924] flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-[#C89D4B] inline-block"></span>
+                    <span>Safety-led execution</span>
+                  </h4>
+                  <p className="text-xs text-stone-500 mt-1 pl-4">Strict compliance with international ISM & ISPS security codes.</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-[#0B1924]">02 Vetted marine partners</h4>
-                  <p className="text-xs text-stone-500 mt-1">Rigorous audits for all crews and equipment.</p>
+                  <h4 className="font-bold text-sm text-[#0B1924] flex items-center space-x-2">
+                    <span className="w-2 h-2 bg-[#C89D4B] inline-block"></span>
+                    <span>Vetted marine partners</span>
+                  </h4>
+                  <p className="text-xs text-stone-500 mt-1 pl-4">Rigorous audits for all crews, equipment, and charter hulls.</p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
 
       {/* OPERATIONS */}
       <section id="operations" className="bg-[#0B1924] text-white py-24 border-t border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="max-w-3xl mb-16">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C89D4B]">OUR OPERATING STANDARD</span>
-            <h2 className="text-3xl sm:text-5xl font-light mt-2">
+            <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">
               Prepared before departure. <br /><span className="font-bold">Accountable throughout.</span>
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { step: '01', title: 'Assess', desc: 'Pre-deployment analysis of routes, timings, and risk profiles.' },
-              { step: '02', title: 'Mobilize', desc: 'Tactical assets, verified crews, and legal compliance ready.' },
-              { step: '03', title: 'Deliver', desc: 'Continuous tracking, clear command, and total follow-through.' }
+              { step: '01', title: 'Assess', desc: 'Pre-deployment analysis of routes, timings, risk profiles, and compliance requirements.' },
+              { step: '02', title: 'Mobilize', desc: 'Tactical assets, verified crews, and certified operational gear positioned on schedule.' },
+              { step: '03', title: 'Deliver', desc: 'Continuous tracking, clear command coordination, and total follow-through to port.' }
             ].map((op, idx) => (
-              <div key={idx} className="bg-[#0A131B] border border-slate-800 p-8 flex flex-col justify-between">
+              <div key={idx} className="bg-[#0A131B] border border-slate-800 p-8 flex flex-col justify-between hover:border-[#C89D4B]/50 transition-colors">
                 <div>
                   <span className="text-xs font-mono font-bold text-[#C89D4B] block mb-4">{op.step}</span>
                   <h3 className="text-2xl font-bold mb-3">{op.title}</h3>
-                  <p className="text-slate-400 text-sm">{op.desc}</p>
+                  <p className="text-slate-400 text-sm leading-relaxed">{op.desc}</p>
                 </div>
                 <div className="mt-8 pt-4 border-t border-slate-800 flex justify-between text-xs text-slate-500">
                   <span>Phase {op.step}</span>
@@ -330,66 +419,194 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="bg-[#0A131B] text-white py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5">
-              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">START A CONVERSATION</span>
-              <h2 className="text-4xl sm:text-6xl font-light my-6">Your next <br /><span className="font-bold">operation</span> starts here.</h2>
-              <p className="text-slate-300">operations@naviterra.com</p>
+      {/* ENHANCED CONTACT & INQUIRY SECTION */}
+      <section id="contact" className="bg-[#0A131B] text-white py-24 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            {/* Left Contact Information */}
+            <div className="lg:col-span-5 space-y-8">
+              <div>
+                <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">START A CONVERSATION</span>
+                <h2 className="text-4xl sm:text-6xl font-light my-4 tracking-tight">
+                  Your next <br /><span className="font-bold">operation</span> <br />starts here.
+                </h2>
+                <p className="text-slate-300 text-base leading-relaxed">
+                  Submit your operational requirements below or connect directly with our 24/7 active maritime command desk.
+                </p>
+              </div>
+
+              <div className="space-y-6 pt-6 border-t border-slate-800">
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-[#0B1924] border border-slate-700 flex items-center justify-center shrink-0">
+                    <Mail className="w-5 h-5 text-[#C89D4B]" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Direct Desk Email</span>
+                    <a href="mailto:operations@naviterra.com" className="text-base font-mono text-white hover:text-[#C89D4B] transition-colors">
+                      operations@naviterra.com
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-[#0B1924] border border-slate-700 flex items-center justify-center shrink-0">
+                    <Phone className="w-5 h-5 text-[#C89D4B]" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Command Operations Hotline</span>
+                    <span className="text-base font-mono text-white">+234 (0) 123 456 7890</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-[#0B1924] border border-slate-700 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-[#C89D4B]" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Headquarters</span>
+                    <span className="text-sm text-slate-300">Victoria Island, Lagos, Nigeria</span>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-10 h-10 bg-[#0B1924] border border-slate-700 flex items-center justify-center shrink-0">
+                    <Clock className="w-5 h-5 text-[#C89D4B]" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Response Commitment</span>
+                    <span className="text-sm text-slate-300">Active coordination desk open 24 hours / 365 days</span>
+                  </div>
+                </div>
+              </div>
             </div>
 
+            {/* Right White Form Box */}
             <div className="lg:col-span-7 bg-white text-[#0B1924] p-8 sm:p-12 shadow-2xl">
               {formSubmitted ? (
-                <div className="py-12 text-center">
-                  <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto mb-4" />
-                  <h3 className="text-2xl font-bold">Enquiry Received</h3>
+                <div className="py-16 text-center animate-in fade-in duration-500">
+                  <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <CheckCircle2 className="w-10 h-10" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-[#0B1924] mb-2">Enquiry Received</h3>
+                  <p className="text-stone-600 text-sm max-w-md mx-auto leading-relaxed">
+                    Thank you. Your request has been securely logged with our 24/7 command operations desk. A senior maritime coordinator will reach out shortly.
+                  </p>
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-6">
-                  <div>
-                    <label className="block text-[10px] font-bold uppercase text-stone-500 mb-2">YOUR NAME *</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-stone-50 border-b-2 border-stone-300 px-4 py-3 text-sm text-[#0B1924] outline-none"
-                    />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-2">YOUR NAME *</label>
+                      <input
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        placeholder="Full name"
+                        className="w-full bg-stone-50 border-b-2 border-stone-300 focus:border-[#C89D4B] px-4 py-3 text-sm text-[#0B1924] outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-2">COMPANY / AGENCY</label>
+                      <input
+                        type="text"
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        placeholder="Company name"
+                        className="w-full bg-stone-50 border-b-2 border-stone-300 focus:border-[#C89D4B] px-4 py-3 text-sm text-[#0B1924] outline-none"
+                      />
+                    </div>
                   </div>
-                  <div>
-                    <label className="block text-[10px] font-bold uppercase text-stone-500 mb-2">EMAIL ADDRESS *</label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-stone-50 border-b-2 border-stone-300 px-4 py-3 text-sm text-[#0B1924] outline-none"
-                    />
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-2">EMAIL ADDRESS *</label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="you@company.com"
+                        className="w-full bg-stone-50 border-b-2 border-stone-300 focus:border-[#C89D4B] px-4 py-3 text-sm text-[#0B1924] outline-none"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-2">PHONE NUMBER</label>
+                      <input
+                        type="text"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        placeholder="+1 (555) 000-0000"
+                        className="w-full bg-stone-50 border-b-2 border-stone-300 focus:border-[#C89D4B] px-4 py-3 text-sm text-[#0B1924] outline-none"
+                      />
+                    </div>
                   </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-2">SERVICE DIVISION</label>
+                      <select
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        className="w-full bg-stone-50 border-b-2 border-stone-300 focus:border-[#C89D4B] px-4 py-3 text-sm text-[#0B1924] outline-none cursor-pointer"
+                      >
+                        <option value="Security Escort Vessels">Security Escort Vessels</option>
+                        <option value="Stowaway Search">Stowaway Search</option>
+                        <option value="Vessel Leasing & Equipment">Vessel Leasing & Equipment</option>
+                        <option value="Crude Oil Trading Brokerage">Crude Oil Trading Brokerage</option>
+                        <option value="Vessels & Offshore Protection">Vessels & Offshore Protection</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label className="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-2">URGENCY / TIMELINE</label>
+                      <select
+                        value={formData.urgency}
+                        onChange={(e) => setFormData({ ...formData, urgency: e.target.value })}
+                        className="w-full bg-stone-50 border-b-2 border-stone-300 focus:border-[#C89D4B] px-4 py-3 text-sm text-[#0B1924] outline-none cursor-pointer"
+                      >
+                        <option value="Immediate (24 hrs)">Immediate (24 hrs)</option>
+                        <option value="Standard (48 hrs)">Standard (48 hrs)</option>
+                        <option value="Future Charter / Planning">Future Charter / Planning</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-[10px] font-bold uppercase tracking-widest text-stone-500 mb-2">OPERATION DETAILS & REQUIREMENTS</label>
+                    <textarea
+                      rows={4}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      placeholder="Specify vessel type, port location, timeline, or specific operational requirements..."
+                      className="w-full bg-stone-50 border-b-2 border-stone-300 focus:border-[#C89D4B] px-4 py-3 text-sm text-[#0B1924] outline-none resize-none"
+                    ></textarea>
+                  </div>
+
                   <button
                     type="submit"
-                    className="bg-[#C89D4B] text-[#0B1924] font-bold px-8 py-4 text-xs uppercase tracking-widest flex items-center space-x-3"
+                    className="w-full sm:w-auto bg-[#C89D4B] hover:bg-[#b0883d] text-[#0B1924] font-bold px-8 py-4 text-xs uppercase tracking-widest flex items-center justify-center space-x-3 transition-colors shadow-lg"
                   >
-                    <span>Submit enquiry</span>
+                    <span>Submit official enquiry</span>
                     <ArrowUpRight className="w-4 h-4" />
                   </button>
                 </form>
               )}
             </div>
+
           </div>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-[#080F16] text-slate-400 py-16 border-t border-slate-800">
+      <footer className="bg-[#080F16] text-slate-400 py-16 border-t border-slate-800 text-left">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center pb-8 border-b border-slate-800">
             <span className="text-xl font-bold text-white mb-4 md:mb-0">NaviTera</span>
             <div className="flex space-x-6 text-xs font-medium">
               <button onClick={() => scrollToSection('about')} className="hover:text-white">About</button>
               <button onClick={() => scrollToSection('services')} className="hover:text-white">Services</button>
+              <button onClick={() => scrollToSection('operations')} className="hover:text-white">Operations</button>
               <button onClick={() => scrollToSection('contact')} className="hover:text-white">Contact</button>
             </div>
           </div>
@@ -397,25 +614,59 @@ export default function App() {
         </div>
       </footer>
 
-      {/* MODAL */}
+      {/* DETAILED SERVICE MODAL */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white p-8 relative">
-            <button onClick={() => setSelectedService(null)} className="absolute top-4 right-4 text-slate-400 hover:text-white">
-              <X className="w-6 h-6" />
-            </button>
-            <h3 className="text-2xl font-bold mb-4">{selectedService.title}</h3>
-            <p className="text-slate-300 text-sm mb-6">{selectedService.detailedDesc}</p>
-            <button
-              onClick={() => {
-                setSelectedService(null);
-                scrollToSection('contact');
-              }}
-              className="bg-[#C89D4B] text-[#0B1924] px-6 py-3 text-xs font-bold uppercase tracking-wider flex items-center space-x-2"
-            >
-              <span>Request this service</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </button>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
+          <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white shadow-2xl overflow-hidden relative text-left">
+            <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-[#0A131B]">
+              <div className="flex items-center space-x-3">
+                <span className="text-xs font-mono font-bold text-[#C89D4B]">{selectedService.id}</span>
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#C89D4B] px-2.5 py-0.5 border border-[#C89D4B]/30 bg-[#C89D4B]/10">
+                  {selectedService.badge}
+                </span>
+              </div>
+              <button onClick={() => setSelectedService(null)} className="text-slate-400 hover:text-white p-1">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="p-6 sm:p-8 space-y-6">
+              <div className="relative h-48 sm:h-64 overflow-hidden border border-slate-800">
+                <img src={selectedService.image} alt={selectedService.title} className="w-full h-full object-cover" />
+              </div>
+
+              <div>
+                <h3 className="text-2xl font-bold text-white mb-3">{selectedService.title}</h3>
+                <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">{selectedService.detailedDesc}</p>
+                
+                <h4 className="text-xs font-bold uppercase tracking-widest text-[#C89D4B] mb-3">Key Operational Highlights</h4>
+                <ul className="space-y-2 mb-6">
+                  {selectedService.highlights.map((item, idx) => (
+                    <li key={idx} className="flex items-center space-x-2 text-xs text-slate-300">
+                      <CheckCircle2 className="w-4 h-4 text-[#C89D4B]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="pt-4 border-t border-slate-800 flex items-center justify-between">
+                <button
+                  onClick={() => {
+                    setFormData({ ...formData, service: selectedService.title });
+                    setSelectedService(null);
+                    scrollToSection('contact');
+                  }}
+                  className="bg-[#C89D4B] hover:bg-[#b0883d] text-[#0B1924] px-6 py-3 text-xs font-bold uppercase tracking-widest flex items-center space-x-2 transition-colors"
+                >
+                  <span>Request this service</span>
+                  <ArrowUpRight className="w-4 h-4" />
+                </button>
+                <button onClick={() => setSelectedService(null)} className="text-xs text-slate-400 hover:text-white uppercase tracking-wider">
+                  Close overview
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       )}
