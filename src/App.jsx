@@ -76,11 +76,19 @@ export default function App() {
   const services = [
     {
       id: '01',
-      title: 'Security Escort Vessels',
+      title: 'Maritime Security Escort Services',
       category: 'protection',
       icon: <Shield className="w-6 h-6 text-[#C89D4B]" />,
-      description: 'Purpose-ready marine assets and tactical teams for safe passage through high-risk waters and offshore zones.',
-      detailedDesc: 'NaviTera provides armed and unarmed Security Escort Vessels (SEVs) fully compliant with international maritime security codes. Our crews are trained to maintain tactical perimeter defense, offering 24/7 protection for commercial tankers, FPSOs, and cargo ships operating in high-risk territorial waters.',
+      description: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets.',
+      detailedDesc: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets within applicable operational areas.
+
+Our services may include:
+
+* Security escort vessel services.
+* Vessel movement and security coordination.
+* Maritime security support for commercial shipping and offshore operations.
+* Security communications and operational reporting.
+* Coordination with relevant maritime stakeholders.',
       image: '/NaviTera Security Escort Vessel.png',
       badge: 'High Risk Zones',
       highlights: ['Armed & Unarmed Tactical Teams', '24/7 Radar & AIS Tracking', 'ISM & ISPS Compliant']
@@ -225,15 +233,15 @@ export default function App() {
             <div className="flex items-center space-x-3 mb-6">
               <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
               <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">
-                INTEGRATED MARITIME SERVICES
+                NaviTera FRONTIERS SOLUTIONS
               </span>
             </div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.1] mb-8">
-              Certainty at sea. <br />
-              <span className="font-semibold text-white">Strength in every</span> operation.
+              Securing Frontiers, <br />
+              <span className="font-semibold text-white">Connecting Opportunities</span> Around the world.
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 font-light leading-relaxed mb-10 max-w-2xl text-left">
-              Delivering secure, reliable, and commercially sound marine solutions across the Gulf of Guinea and beyond.
+              We deliver reliable, risk-informed maritime security and offshore support services that protect people, vessels, cargo, and critical assets.
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-5">
               <button 
@@ -321,16 +329,16 @@ export default function App() {
               <div className="flex items-center space-x-3 mb-4">
                 <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
                 <span className="text-xs uppercase tracking-[0.3em] font-bold text-[#C89D4B]">
-                  OPERATIONAL DIVISIONS & CAPABILITIES
+                  OUR SERVICES
                 </span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white">
                 Marine expertise. <br />
-                <span className="font-bold text-[#C89D4B]">One trusted command.</span>
+                <span className="font-bold text-[#C89D4B]"></span>
               </h2>
             </div>
             <p className="mt-6 lg:mt-0 text-slate-400 max-w-md text-sm sm:text-base leading-relaxed text-left font-light">
-              Purpose-built maritime assets, tactical defense teams, and trade brokerage engineered for uncompromising safety and regulatory compliance.
+             We are trusted regional and international provider of integrated maritime security, offshore protection, and marine support services, recognised for operational excellence, professional integrity, and innovative solutions.
             </p>
           </div>
 
