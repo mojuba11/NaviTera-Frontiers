@@ -457,7 +457,7 @@ export default function App() {
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C89D4B]">OUR OPERATING STANDARD</span>
             <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">
               Preparedness, <br />
-              <span className="font-bold">Accountability.</span>
+              <span className="font-light">Accountability.</span>
             </h2>
           </div>
 
@@ -492,7 +492,7 @@ export default function App() {
                 <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">START A CONVERSATION</span>
                 <h2 className="text-4xl sm:text-6xl font-light my-4 tracking-tight">
                   Your next <br />
-                  <span className="font-bold">operation</span><br />
+                  <span className="font-light">operation</span><br />
                   starts here.
                 </h2>
                 <p className="text-slate-300 text-base leading-relaxed">
