@@ -116,7 +116,7 @@ export default function App() {
       icon: <Ship className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Integrated offshore security and maritime surveillance solutions',
       detailedDesc: 'NaviTera Frontiers Solutions develops and provides integrated offshore security and maritime surveillance solutions designed to protect offshore installations, vessels, personnel, and critical maritime infrastructure. Our proposed security framework combines professional maritime security coordination, liaison with relevant government security agencies, authorised maritime security personnel, and technology-enabled surveillance systems to strengthen situational awareness and support effective threat management.',
-      image: '/vessel protection.jpeg',
+      image: '/maritime surveillance.png',
       badge: 'Security Coordination',
       highlights: [
         'Integrated offshore security framework.',
