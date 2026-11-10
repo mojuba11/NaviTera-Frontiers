@@ -47,7 +47,7 @@ export default function App() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [whatsappOpen, setWhatsappOpen] = useState(false);
   const [whatsappMessage, setWhatsappMessage] = useState('');
-  
+
   // Contact Form State initialization (Prevents blank blue screen crash)
   const [formData, setFormData] = useState({
     name: '',
@@ -83,7 +83,13 @@ export default function App() {
       detailedDesc: 'NaviTera Frontiers Solutions provides coordinated maritime security escort services for merchant vessels, commercial shipping operations, offshore movements, and other designated maritime activities within authorised Nigerian territorial and offshore waters.',
       image: '/NaviTera Security Escort Vessel.png',
       badge: 'High Risk Zones',
-      highlights: ['Security escort vessel services.', 'Vessel movement and security coordination.', 'Coordination with relevant maritime stakeholders.','Security communications and operational reporting.','Maritime security support for commercial shipping and offshore operations']
+      highlights: [
+        'Security escort vessel services.',
+        'Vessel movement and security coordination.',
+        'Coordination with relevant maritime stakeholders.',
+        'Security communications and operational reporting.',
+        'Maritime security support for commercial shipping and offshore operations'
+      ]
     },
     {
       id: '02',
@@ -94,7 +100,14 @@ export default function App() {
       detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard vessels',
       image: '/stowaway.jpeg',
       badge: 'Port Compliance',
-      highlights: ['Pre-departure stowaway searches.', 'Incident escalation and coordination with appropriate authorities where necessary.', Search documentation and reporting', 'Systematic searches of designated vessel spaces.', 'Inspection of accessible compartments and other relevant locations.', 'Zero Port Delay Guarantee']
+      highlights: [
+        'Pre-departure stowaway searches.',
+        'Incident escalation and coordination with appropriate authorities where necessary.',
+        'Search documentation and reporting',
+        'Systematic searches of designated vessel spaces.',
+        'Inspection of accessible compartments and other relevant locations.',
+        'Zero Port Delay Guarantee'
+      ]
     },
     {
       id: '03',
@@ -102,16 +115,20 @@ export default function App() {
       category: 'logistics',
       icon: <Ship className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Integrated offshore security and maritime surveillance solutions',
-      detailedDesc: 'NaviTera Frontiers Solutions  develops and provides integrated offshore security and maritime surveillance solutions designed to protect offshore installations, vessels, personnel, and critical maritime infrastructure. Our proposed security framework combines professional maritime security coordination, liaison with relevant government security agencies, authorised maritime security personnel, and technology-enabled surveillance systems to strengthen situational awareness and support effective threat management.',
+      detailedDesc: 'NaviTera Frontiers Solutions develops and provides integrated offshore security and maritime surveillance solutions designed to protect offshore installations, vessels, personnel, and critical maritime infrastructure. Our proposed security framework combines professional maritime security coordination, liaison with relevant government security agencies, authorised maritime security personnel, and technology-enabled surveillance systems to strengthen situational awareness and support effective threat management.',
       image: '/vessel protection.jpeg',
       badge: 'Security Coordination',
-      highlights: ['', ]
-    },
-
+      highlights: [
+        'Integrated offshore security framework.',
+        'Liaison with government security agencies.',
+        'Technology-enabled real-time maritime surveillance.',
+        '24/7 threat detection and situational awareness.'
+      ]
+    }
   ];
 
-  const filteredServices = activeServiceTab === 'all' 
-    ? services 
+  const filteredServices = activeServiceTab === 'all'
+    ? services
     : services.filter(s => s.category === activeServiceTab);
 
   const handleFormSubmit = (e) => {
@@ -134,7 +151,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#0B1924] text-slate-100 font-sans selection:bg-[#C89D4B] selection:text-[#0B1924]">
-      
       {/* NAVBAR */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0B1924]/90 backdrop-blur-md border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
@@ -147,14 +163,12 @@ export default function App() {
             />
             <span className="text-xl font-bold text-white tracking-tight">NaviTera</span>
           </div>
-
           <nav className="hidden md:flex items-center space-x-8 text-sm font-medium">
             <button onClick={() => scrollToSection('about')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">About</button>
             <button onClick={() => scrollToSection('services')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">Services</button>
             <button onClick={() => scrollToSection('operations')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">Operations</button>
             <button onClick={() => scrollToSection('contact')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">Contact</button>
           </nav>
-
           <div className="hidden md:flex items-center">
             <button 
               onClick={() => scrollToSection('contact')}
@@ -164,14 +178,12 @@ export default function App() {
               <ArrowUpRight className="w-4 h-4" />
             </button>
           </div>
-
           <div className="md:hidden flex items-center">
             <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="text-slate-300 hover:text-white p-2">
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
-
         {mobileMenuOpen && (
           <div className="md:hidden bg-[#0A131B] border-b border-slate-800 px-4 pt-4 pb-6 space-y-4">
             <button onClick={() => scrollToSection('about')} className="block w-full text-left py-2 text-slate-200">About</button>
@@ -186,26 +198,17 @@ export default function App() {
       {/* HERO WITH BACKGROUND VIDEO */}
       <section id="hero" className="relative min-h-screen pt-28 pb-20 flex items-center justify-start overflow-hidden bg-[#0B1924]">
         <div className="absolute inset-0 z-0 overflow-hidden">
-          <video 
-            autoPlay 
-            loop 
-            muted 
-            playsInline
-            className="w-full h-full object-cover opacity-40 scale-105"
-          >
+          <video autoPlay loop muted playsInline className="w-full h-full object-cover opacity-40 scale-105">
             <source src="/backgroundvideo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
           <div className="absolute inset-0 bg-gradient-to-t from-[#0B1924] via-[#0B1924]/75 to-[#0B1924]/90" />
         </div>
-
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 text-left w-full">
           <div className="max-w-3xl">
             <div className="flex items-center space-x-3 mb-6">
               <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
-              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">
-                NaviTera FRONTIERS SOLUTIONS
-              </span>
+              <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">NaviTera FRONTIERS SOLUTIONS</span>
             </div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.1] mb-8">
               Securing Frontiers, <br />
@@ -237,7 +240,6 @@ export default function App() {
       <section className="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="bg-gradient-to-r from-[#0A131B] via-[#0E1F2E] to-[#0A131B] border border-[#C89D4B]/30 rounded-2xl shadow-2xl p-8 sm:p-10 backdrop-blur-xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-800/80">
-            
             {/* Stat Item 1 */}
             <div className="pt-4 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
               <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
@@ -264,7 +266,7 @@ export default function App() {
                   <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Core</span>
                 </div>
                 <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Service Divisions</span>
-                <span className="text-xs text-slate-400 block mt-0.5 font-light">Survellance, Security Escort, & Advance Stowaway Search</span>
+                <span className="text-xs text-slate-400 block mt-0.5 font-light">Surveillance, Security Escort, & Advance Stowaway Search</span>
               </div>
             </div>
 
@@ -282,7 +284,6 @@ export default function App() {
                 <span className="text-xs text-slate-400 block mt-0.5 font-light">End-to-end vessel & offshore protection</span>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -291,25 +292,20 @@ export default function App() {
       <section id="services" className="bg-[#050D14] text-white py-28 relative overflow-hidden">
         {/* Subtle background glow effects */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C89D4B]/5 rounded-full blur-3xl pointer-events-none" />
-        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 pb-8 border-b border-slate-800 text-left">
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
-                <span className="text-xs uppercase tracking-[0.3em] font-bold text-[#C89D4B]">
-                  OUR SERVICES
-                </span>
+                <span className="text-xs uppercase tracking-[0.3em] font-bold text-[#C89D4B]">OUR SERVICES</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white">
-               
                 <span className="font-bold text-[#C89D4B]"></span>
               </h2>
             </div>
             <p className="mt-6 lg:mt-0 text-slate-400 max-w-md text-sm sm:text-base leading-relaxed text-left font-light">
-             We are trusted regional and international provider of integrated maritime security, offshore protection, and marine support services, recognised for operational excellence, professional integrity, and innovative solutions.
+              We are trusted regional and international provider of integrated maritime security, offshore protection, and marine support services, recognised for operational excellence, professional integrity, and innovative solutions.
             </p>
           </div>
 
@@ -348,10 +344,10 @@ export default function App() {
               >
                 {/* Background Image with Cinematic Overlay */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
-                  <img 
-                    src={service.image} 
-                    alt={service.title} 
-                    className="w-full h-full object-cover opacity-25 group-hover:scale-110 group-hover:opacity-35 transition-all duration-700" 
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover opacity-25 group-hover:scale-110 group-hover:opacity-35 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A131B] via-[#0A131B]/90 to-[#0A131B]/40" />
                 </div>
@@ -398,7 +394,6 @@ export default function App() {
               </div>
             ))}
           </div>
-
         </div>
       </section>
 
@@ -406,7 +401,6 @@ export default function App() {
       <section id="about" className="bg-white text-[#0B1924] py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            
             {/* Visual Image Container with Click & Hover Zoom Effects */}
             <div className="lg:col-span-5 relative">
               <div className="relative z-10 bg-[#0B1924] p-2 shadow-2xl rounded-lg overflow-hidden group cursor-pointer">
@@ -427,14 +421,10 @@ export default function App() {
                   ABOUT NAVITERRA MARITIME
                 </span>
               </div>
-              
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0B1924] tracking-tight leading-tight">
-              </h2>
-              
+              <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0B1924] tracking-tight leading-tight"></h2>
               <p className="text-stone-700 leading-relaxed text-base sm:text-lg font-light">
                 NaviTera is a premier maritime services company engineered to resolve complex offshore, security, and commercial challenges across West African waters with absolute clarity, speed, and command control.
               </p>
-
               <p className="text-stone-600 leading-relaxed text-sm sm:text-base">
                 Operating strictly within international maritime security protocols, ISM, and ISPS codes, we serve global shipping lines, energy majors, and offshore terminal operators with unwavering reliability.
               </p>
@@ -457,7 +447,6 @@ export default function App() {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -468,7 +457,8 @@ export default function App() {
           <div className="max-w-3xl mb-16">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C89D4B]">OUR OPERATING STANDARD</span>
             <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">
-              Preparedness, <br /><span className="font-bold">Accounability.</span>
+              Preparedness, <br />
+              <span className="font-bold">Accountability.</span>
             </h2>
           </div>
 
@@ -498,12 +488,13 @@ export default function App() {
       <section id="contact" className="bg-[#0A131B] text-white py-24 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
             <div className="lg:col-span-5 space-y-8">
               <div>
                 <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">START A CONVERSATION</span>
                 <h2 className="text-4xl sm:text-6xl font-light my-4 tracking-tight">
-                  Your next <br /><span className="font-bold">operation</span> <br />starts here.
+                  Your next <br />
+                  <span className="font-bold">operation</span><br />
+                  starts here.
                 </h2>
                 <p className="text-slate-300 text-base leading-relaxed">
                   Submit your operational requirements below or connect directly with our 24/7 active maritime command desk.
@@ -529,7 +520,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Command Operations Hotline</span>
-                    <span className="text-base font-mono text-white">+234 (0) 123 456 7890</span>
+                    <span className="text-base font-mono text-white">+234 806 711 1865, +234 803 110 5222</span>
                   </div>
                 </div>
 
@@ -666,7 +657,6 @@ export default function App() {
                 </form>
               )}
             </div>
-
           </div>
         </div>
       </section>
@@ -674,14 +664,12 @@ export default function App() {
       {/* FOOTER */}
       <footer className="bg-[#080F16] text-slate-400 py-20 border-t border-slate-800 text-left">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-slate-800">
-            
             <div className="md:col-span-5 space-y-4">
               <div className="flex items-center space-x-3">
-                <img 
-                  src="/NaviTera-logo.jpg" 
-                  alt="NaviTera Logo" 
+                <img
+                  src="/NaviTera-logo.jpg"
+                  alt="NaviTera Logo"
                   className="h-10 w-auto object-contain rounded-md"
                   onError={(e) => { e.target.src = 'https://placehold.co/100x40/0B1924/C89D4B?text=NaviTera'; }}
                 />
@@ -690,30 +678,29 @@ export default function App() {
               <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-light">
                 Integrated maritime services engineered for safety, compliance, and swift operational deployment across West African waters and international shipping lanes.
               </p>
-              
               <div className="pt-2 flex items-center space-x-4">
-                <a 
-                  href="https://facebook.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Facebook"
                   className="w-10 h-10 bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
                 >
                   <FacebookIcon className="w-4 h-4" />
                 </a>
-                <a 
-                  href="https://instagram.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="Instagram"
                   className="w-10 h-10 bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
                 >
                   <InstagramIcon className="w-4 h-4" />
                 </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="w-10 h-10 bg-[#0B1924] border border-slate-800 flex items-center justify-center text-slate-300 hover:text-[#C89D4B] hover:border-[#C89D4B] transition-all"
                 >
@@ -723,42 +710,18 @@ export default function App() {
             </div>
 
             <div className="md:col-span-3 space-y-4">
-              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#C89D4B] block">
-                NAVIGATION
-              </span>
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#C89D4B] block">NAVIGATION</span>
               <ul className="space-y-3 text-xs font-medium">
-                <li>
-                  <button onClick={() => scrollToSection('hero')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>Home</span>
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>About NaviTera</span>
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>Marine Services</span>
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('operations')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>Operating Standards</span>
-                  </button>
-                </li>
-                <li>
-                  <button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors flex items-center space-x-1">
-                    <span>Request Service / Contact</span>
-                  </button>
-                </li>
+                <li><button onClick={() => scrollToSection('hero')} className="hover:text-white transition-colors flex items-center space-x-1"><span>Home</span></button></li>
+                <li><button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors flex items-center space-x-1"><span>About NaviTera</span></button></li>
+                <li><button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors flex items-center space-x-1"><span>Marine Services</span></button></li>
+                <li><button onClick={() => scrollToSection('operations')} className="hover:text-white transition-colors flex items-center space-x-1"><span>Operating Standards</span></button></li>
+                <li><button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors flex items-center space-x-1"><span>Request Service / Contact</span></button></li>
               </ul>
             </div>
 
             <div className="md:col-span-4 space-y-4">
-              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#C89D4B] block">
-                24/7 COMMAND DESK
-              </span>
+              <span className="text-xs uppercase tracking-[0.2em] font-bold text-[#C89D4B] block">24/7 COMMAND DESK</span>
               <div className="space-y-3 text-xs">
                 <div className="flex items-start space-x-3">
                   <Mail className="w-4 h-4 text-[#C89D4B] shrink-0 mt-0.5" />
@@ -769,7 +732,6 @@ export default function App() {
                     </a>
                   </div>
                 </div>
-
                 <div className="flex items-start space-x-3">
                   <MapPin className="w-4 h-4 text-[#C89D4B] shrink-0 mt-0.5" />
                   <div>
@@ -779,7 +741,6 @@ export default function App() {
                 </div>
               </div>
             </div>
-
           </div>
 
           <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 space-y-4 sm:space-y-0">
@@ -790,7 +751,6 @@ export default function App() {
               <span className="hover:text-slate-400 cursor-pointer transition-colors">ISM / ISPS Compliance</span>
             </div>
           </div>
-
         </div>
       </footer>
 
@@ -798,7 +758,6 @@ export default function App() {
       {selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
           <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white overflow-hidden shadow-2xl relative rounded-xl">
-            
             {/* Modal Header with Close Button */}
             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-[#0A131B]">
               <div className="flex items-center space-x-3">
@@ -807,8 +766,8 @@ export default function App() {
                   {selectedService.badge}
                 </span>
               </div>
-              <button 
-                onClick={() => setSelectedService(null)} 
+              <button
+                onClick={() => setSelectedService(null)}
                 className="text-slate-400 hover:text-white hover:bg-slate-800 p-2 rounded-full transition-colors"
                 aria-label="Close modal"
               >
@@ -819,17 +778,17 @@ export default function App() {
             {/* Modal Content */}
             <div className="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
               <div className="relative h-48 sm:h-64 overflow-hidden border border-slate-800 rounded">
-                <img 
-                  src={selectedService.image} 
-                  alt={selectedService.title} 
-                  className="w-full h-full object-cover" 
+                <img
+                  src={selectedService.image}
+                  alt={selectedService.title}
+                  className="w-full h-full object-cover"
                 />
               </div>
 
               <div>
                 <h3 className="text-2xl font-bold text-white mb-3">{selectedService.title}</h3>
                 <p className="text-slate-300 text-sm leading-relaxed mb-6 font-light">{selectedService.detailedDesc}</p>
-                
+
                 <h4 className="text-xs font-bold uppercase tracking-widest text-[#C89D4B] mb-3">Key Operational Highlights</h4>
                 <ul className="space-y-2 mb-6">
                   {selectedService.highlights.map((item, idx) => (
@@ -854,15 +813,14 @@ export default function App() {
                   <span>Request this service</span>
                   <ArrowUpRight className="w-4 h-4" />
                 </button>
-                <button 
-                  onClick={() => setSelectedService(null)} 
+                <button
+                  onClick={() => setSelectedService(null)}
                   className="w-full sm:w-auto text-xs text-slate-400 hover:text-white border border-slate-700 hover:border-slate-500 px-5 py-3 uppercase tracking-wider font-semibold transition-colors"
                 >
                   Close overview
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       )}
@@ -888,7 +846,7 @@ export default function App() {
                   </span>
                 </div>
               </div>
-              <button 
+              <button
                 onClick={() => setWhatsappOpen(false)}
                 className="text-slate-400 hover:text-white p-1"
                 aria-label="Close chat"
@@ -936,7 +894,6 @@ export default function App() {
           <span className="text-xs font-bold uppercase tracking-wider">Talk to us</span>
         </button>
       </div>
-
     </div>
   );
 }
