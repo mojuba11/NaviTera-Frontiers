@@ -212,7 +212,7 @@ export default function App() {
             </div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.1] mb-8">
               Securing Frontiers, <br />
-              <span className="font-semibold text-white">Connecting Opportunities</span>
+              <span className="font-light text-white">Connecting Opportunities</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 font-light leading-relaxed mb-10 max-w-2xl text-left">
               We deliver reliable, risk-informed maritime security and offshore support services that protect people, vessels, cargo, and critical assets.
@@ -301,7 +301,7 @@ export default function App() {
                 <span className="text-xs uppercase tracking-[0.3em] font-bold text-[#C89D4B]">OUR SERVICES</span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white">
-                <span className="font-bold text-[#C89D4B]"></span>
+                Integrated Maritime Solutions <span className="font-bold text-[#C89D4B]"></span>
               </h2>
             </div>
             <p className="mt-6 lg:mt-0 text-slate-400 max-w-md text-sm sm:text-base leading-relaxed text-left font-light">
