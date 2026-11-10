@@ -76,59 +76,38 @@ export default function App() {
   const services = [
     {
       id: '01',
-      title: 'Maritime Security Escort',
+      title: 'BORDER-TO-BORDER MARITIME SECURITY ESCORT',
       category: 'protection',
       icon: <Shield className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets.',
-      detailedDesc: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets within applicable operational areas.',
+      detailedDesc: 'NaviTera Frontiers Solutions provides coordinated maritime security escort services for merchant vessels, commercial shipping operations, offshore movements, and other designated maritime activities within authorised Nigerian territorial and offshore waters.',
       image: '/NaviTera Security Escort Vessel.png',
       badge: 'High Risk Zones',
       highlights: ['Security escort vessel services.', 'Vessel movement and security coordination.', 'Coordination with relevant maritime stakeholders.','Security communications and operational reporting.','Maritime security support for commercial shipping and offshore operations']
     },
     {
       id: '02',
-      title: 'Stowaway Detection and Search',
+      title: 'ADVANCED STOWAWAY DETECTION & MARITIME SECURITY SEARCH',
       category: 'security',
       icon: <Search className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Professional stowaway search services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders.',
-      detailedDesc: 'We offer Professional stowaway search services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders in identifying unauthorised persons and addressing associated security risks',
+      detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard vessels',
       image: '/stowaway.jpeg',
       badge: 'Port Compliance',
       highlights: ['Pre-departure stowaway searches.', 'Incident escalation and coordination with appropriate authorities where necessary.', Search documentation and reporting', 'Systematic searches of designated vessel spaces.', 'Inspection of accessible compartments and other relevant locations.', 'Zero Port Delay Guarantee']
     },
     {
       id: '03',
-      title: 'Vessel Leasing & Equipment',
+      title: 'OFFSHORE PROTECTION & REAL-TIME MARITIME SURVEILLANCE',
       category: 'logistics',
       icon: <Ship className="w-6 h-6 text-[#C89D4B]" />,
-      description: 'Flexible access to vetted marine vessels, operational equipment, and dependable offshore support.',
-      detailedDesc: 'We maintain an extensive network of charter-ready maritime assets, including Platform Supply Vessels (PSVs), Anchor Handling Tug Supply (AHTS) vessels, fast crew supply boats, and heavy-duty deck gear custom-fitted to your specific offshore requirements.',
-      image: '/Marine-Offshore-Equipment-Trading.jpg',
-      badge: 'Asset Management',
-      highlights: ['PSVs & AHTS Fleet Access', 'Custom Deck Equipment Outfitting', 'Fully Vetted Crews & Hulls']
-    },
-    {
-      id: '04',
-      title: 'Crude Oil Trading Brokerage',
-      category: 'commercial',
-      icon: <TrendingUp className="w-6 h-6 text-[#C89D4B]" />,
-      description: 'Commercial introductions and transaction coordination built on market insight, diligence, and trust.',
-      detailedDesc: 'Facilitating seamless energy trade logistics across the Gulf of Guinea. NaviTera connects vetted buyers and sellers of crude oil and refined petroleum products while mitigating counterparty risk and ensuring strict adherence to international maritime trade standards.',
-      image: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Energy Market',
-      highlights: ['Vetted Buyer/Seller Introductions', 'Counterparty Risk Mitigation', 'Strict Regulatory Adherence']
-    },
-    {
-      id: '05',
-      title: 'Vessels & Offshore Protection',
-      category: 'protection',
-      icon: <Compass className="w-6 h-6 text-[#C89D4B]" />,
-      description: 'Comprehensive static and dynamic security architectures tailored for FPSOs, rigs, and marine terminals.',
-      detailedDesc: 'Delivering end-to-end maritime defense strategies, physical vessel hardening, remote surveillance integration, and fast-response escort boats to safeguard critical energy infrastructure and offshore drilling rigs against modern maritime threats.',
+      description: 'Integrated offshore security and maritime surveillance solutions',
+      detailedDesc: 'NaviTera Frontiers Solutions  develops and provides integrated offshore security and maritime surveillance solutions designed to protect offshore installations, vessels, personnel, and critical maritime infrastructure. Our proposed security framework combines professional maritime security coordination, liaison with relevant government security agencies, authorised maritime security personnel, and technology-enabled surveillance systems to strengthen situational awareness and support effective threat management.',
       image: '/vessel protection.jpeg',
-      badge: 'Tactical Defense',
-      highlights: ['FPSO & Rig Hardening', 'Remote Surveillance Integration', 'Rapid Intervention Craft']
-    }
+      badge: 'Security Coordination',
+      highlights: ['', ]
+    },
+
   ];
 
   const filteredServices = activeServiceTab === 'all' 
@@ -281,11 +260,11 @@ export default function App() {
               </div>
               <div>
                 <div className="flex items-baseline space-x-2">
-                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">5</span>
+                  <span className="text-3xl sm:text-4xl font-extrabold text-white font-mono tracking-tight">3</span>
                   <span className="text-xs uppercase tracking-widest text-[#C89D4B] font-bold">Core</span>
                 </div>
                 <span className="block text-xs uppercase tracking-wider text-slate-300 font-semibold mt-1">Service Divisions</span>
-                <span className="text-xs text-slate-400 block mt-0.5 font-light">Security, Search, Leasing & Energy</span>
+                <span className="text-xs text-slate-400 block mt-0.5 font-light">Survellance, Security Escort, & Advance Stowaway Search</span>
               </div>
             </div>
 
