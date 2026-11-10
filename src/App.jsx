@@ -80,15 +80,7 @@ export default function App() {
       category: 'protection',
       icon: <Shield className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets.',
-      detailedDesc: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets within applicable operational areas.
-
-Our services may include:
-
-* Security escort vessel services.
-* Vessel movement and security coordination.
-* Maritime security support for commercial shipping and offshore operations.
-* Security communications and operational reporting.
-* Coordination with relevant maritime stakeholders.',
+      detailedDesc: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets within applicable operational areas.',
       image: '/NaviTera Security Escort Vessel.png',
       badge: 'High Risk Zones',
       highlights: ['Armed & Unarmed Tactical Teams', '24/7 Radar & AIS Tracking', 'ISM & ISPS Compliant']
