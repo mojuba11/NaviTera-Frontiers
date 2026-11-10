@@ -5,21 +5,38 @@ export default function Services({ scrollToSection, setSelectedServiceForContact
   const [selectedService, setSelectedService] = useState(null);
 
   const services = [
-    {
+  {
       id: '01',
-      title: 'Security Escort Vessels',
-      description: 'Purpose-ready marine assets and trained teams for safe passage through high-risk waters.',
-      detailedDesc: 'NaviTera provides armed and unarmed Security Escort Vessels (SEVs) fully compliant with international maritime security codes.',
-      image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
-      badge: 'High Risk Zones'
+      title: 'BORDER-TO-BORDER MARITIME SECURITY ESCORT',
+      category: 'protection',
+      icon: <Shield className="w-6 h-6 text-[#C89D4B]" />,
+      description: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets.',
+      detailedDesc: 'NaviTera Frontiers Solutions provides coordinated maritime security escort services for merchant vessels, commercial shipping operations, offshore movements, and other designated maritime activities within authorised Nigerian territorial and offshore waters.',
+      image: '/NaviTera Security Escort Vessel.png',
+      badge: 'High Risk Zones',
+      highlights: ['Security escort vessel services.', 'Vessel movement and security coordination.', 'Coordination with relevant maritime stakeholders.','Security communications and operational reporting.','Maritime security support for commercial shipping and offshore operations']
     },
     {
       id: '02',
-      title: 'Stowaway Search',
-      description: 'Methodical, discreet vessel sweeps that protect your crew, cargo, schedule, and port compliance.',
-      detailedDesc: 'Our tactical search teams conduct exhaustive pre-departure stowaway sweeps across rudders, void spaces, engine rooms, and holds.',
-      image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Port Compliance'
+      title: 'ADVANCED STOWAWAY DETECTION & MARITIME SECURITY SEARCH',
+      category: 'security',
+      icon: <Search className="w-6 h-6 text-[#C89D4B]" />,
+      description: 'Professional stowaway search services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders.',
+      detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard vessels',
+      image: '/stowaway.jpeg',
+      badge: 'Port Compliance',
+      highlights: ['Pre-departure stowaway searches.', 'Incident escalation and coordination with appropriate authorities where necessary.', Search documentation and reporting', 'Systematic searches of designated vessel spaces.', 'Inspection of accessible compartments and other relevant locations.', 'Zero Port Delay Guarantee']
+    },
+    {
+      id: '03',
+      title: 'OFFSHORE PROTECTION & REAL-TIME MARITIME SURVEILLANCE',
+      category: 'logistics',
+      icon: <Ship className="w-6 h-6 text-[#C89D4B]" />,
+      description: 'Integrated offshore security and maritime surveillance solutions',
+      detailedDesc: 'NaviTera Frontiers Solutions  develops and provides integrated offshore security and maritime surveillance solutions designed to protect offshore installations, vessels, personnel, and critical maritime infrastructure. Our proposed security framework combines professional maritime security coordination, liaison with relevant government security agencies, authorised maritime security personnel, and technology-enabled surveillance systems to strengthen situational awareness and support effective threat management.',
+      image: '/vessel protection.jpeg',
+      badge: 'Security Coordination',
+      highlights: ['', ]
     },
     {
       id: '03',
