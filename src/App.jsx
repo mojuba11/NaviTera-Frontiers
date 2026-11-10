@@ -313,10 +313,9 @@ export default function App() {
           <div className="flex flex-wrap gap-3 mb-16">
             {[
               { id: 'all', label: 'All Capabilities' },
-              { id: 'protection', label: 'Vessel Protection' },
-              { id: 'security', label: 'Stowaway Sweeps' },
-              { id: 'logistics', label: 'Leasing & Logistics' },
-              { id: 'commercial', label: 'Energy Brokerage' },
+              { id: 'protection', label: 'Security Escort' },
+              { id: 'security', label: 'Advance Stowaway Search' },
+              { id: 'logistics', label: 'Surveillance' },
             ].map(tab => (
               <button
                 key={tab.id}
