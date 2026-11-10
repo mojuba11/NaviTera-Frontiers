@@ -38,14 +38,6 @@ export default function Services({ scrollToSection, setSelectedServiceForContact
       badge: 'Security Coordination',
       highlights: ['', ]
     },
-    {
-      id: '03',
-      title: 'Vessel Leasing & Equipment',
-      description: 'Flexible access to vetted marine vessels, operational equipment, and dependable offshore support.',
-      detailedDesc: 'We maintain an extensive network of charter-ready maritime assets including Platform Supply Vessels (PSVs) and AHTS vessels.',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
-      badge: 'Asset Management'
-    }
   ];
 
   return (
