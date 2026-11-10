@@ -539,8 +539,8 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Direct Desk Email</span>
-                    <a href="mailto:operations@naviterra.com" className="text-base font-mono text-white hover:text-[#C89D4B] transition-colors">
-                      operations@naviterra.com
+                    <a href="mailto:operations@naviterafrontiers.com" className="text-base font-mono text-white hover:text-[#C89D4B] transition-colors">
+                      operations@naviterafrontiers.com
                     </a>
                   </div>
                 </div>
@@ -786,8 +786,8 @@ export default function App() {
                   <Mail className="w-4 h-4 text-[#C89D4B] shrink-0 mt-0.5" />
                   <div>
                     <span className="text-slate-500 block text-[10px] uppercase">Email Enquiries</span>
-                    <a href="mailto:operations@naviterra.com" className="text-white font-mono hover:text-[#C89D4B] transition-colors">
-                      operations@naviterra.com
+                    <a href="mailto:operations@naviterafrontiers.com" className="text-white font-mono hover:text-[#C89D4B] transition-colors">
+                      operations@naviterafrontiers.com
                     </a>
                   </div>
                 </div>
