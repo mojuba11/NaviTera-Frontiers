@@ -16,6 +16,7 @@ export default function Services({ scrollToSection, setSelectedServiceForContact
       badge: 'High Risk Zones',
       highlights: ['Security escort vessel services.', 'Vessel movement and security coordination.', 'Coordination with relevant maritime stakeholders.','Security communications and operational reporting.','Maritime security support for commercial shipping and offshore operations']
     },
+    
     {
       id: '02',
       title: 'ADVANCED STOWAWAY DETECTION & MARITIME SECURITY SEARCH',
@@ -27,6 +28,7 @@ export default function Services({ scrollToSection, setSelectedServiceForContact
       badge: 'Port Compliance',
       highlights: ['Pre-departure stowaway searches.', 'Incident escalation and coordination with appropriate authorities where necessary.', Search documentation and reporting', 'Systematic searches of designated vessel spaces.', 'Inspection of accessible compartments and other relevant locations.', 'Zero Port Delay Guarantee']
     },
+    
     {
       id: '03',
       title: 'OFFSHORE PROTECTION & REAL-TIME MARITIME SURVEILLANCE',
