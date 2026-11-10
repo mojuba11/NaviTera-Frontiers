@@ -616,8 +616,6 @@ export default function App() {
                       >
                         <option value="Security Escort Vessels">Security Escort Vessels</option>
                         <option value="Stowaway Search">Stowaway Search</option>
-                        <option value="Vessel Leasing & Equipment">Vessel Leasing & Equipment</option>
-                        <option value="Crude Oil Trading Brokerage">Crude Oil Trading Brokerage</option>
                         <option value="Vessels & Offshore Protection">Vessels & Offshore Protection</option>
                       </select>
                     </div>
