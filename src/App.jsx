@@ -209,7 +209,7 @@ export default function App() {
             </div>
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-light text-white tracking-tight leading-[1.1] mb-8">
               Securing Frontiers, <br />
-              <span className="font-semibold text-white">Connecting Opportunities</span> Around the world.
+              <span className="font-semibold text-white">Connecting Opportunities</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-300 font-light leading-relaxed mb-10 max-w-2xl text-left">
               We deliver reliable, risk-informed maritime security and offshore support services that protect people, vessels, cargo, and critical assets.
@@ -304,7 +304,7 @@ export default function App() {
                 </span>
               </div>
               <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white">
-                Marine expertise. <br />
+               
                 <span className="font-bold text-[#C89D4B]"></span>
               </h2>
             </div>
@@ -429,7 +429,6 @@ export default function App() {
               </div>
               
               <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0B1924] tracking-tight leading-tight">
-                Global execution standards.
               </h2>
               
               <p className="text-stone-700 leading-relaxed text-base sm:text-lg font-light">
@@ -469,7 +468,7 @@ export default function App() {
           <div className="max-w-3xl mb-16">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C89D4B]">OUR OPERATING STANDARD</span>
             <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">
-              Prepared before departure. <br /><span className="font-bold">Accountable throughout.</span>
+              Preparedness, <br /><span className="font-bold">Accounability.</span>
             </h2>
           </div>
 
