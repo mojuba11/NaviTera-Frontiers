@@ -125,7 +125,7 @@ export default function Footer({ scrollToSection }) {
                 <MapPin className="w-4 h-4 text-[#C89D4B] shrink-0 mt-0.5" />
                 <div>
                   <span className="text-slate-500 block text-[10px] uppercase">Headquarters</span>
-                  <span className="text-slate-300">Victoria Island, Lagos, Nigeria</span>
+                  <span className="text-slate-300">Suite 10, Kingdom Plaza, Plot 784, Festac Link Bridge, Amuwo Odofin Lagos</span>
                 </div>
               </div>
             </div>
