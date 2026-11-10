@@ -76,25 +76,25 @@ export default function App() {
   const services = [
     {
       id: '01',
-      title: 'Maritime Security Escort Services',
+      title: 'Maritime Security Escort',
       category: 'protection',
       icon: <Shield className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets.',
       detailedDesc: 'Provision and coordination of dedicated security escort vessels to support the safe movement of commercial vessels and maritime assets within applicable operational areas.',
       image: '/NaviTera Security Escort Vessel.png',
       badge: 'High Risk Zones',
-      highlights: ['Armed & Unarmed Tactical Teams', '24/7 Radar & AIS Tracking', 'ISM & ISPS Compliant']
+      highlights: ['Security escort vessel services.', 'Vessel movement and security coordination.', 'Coordination with relevant maritime stakeholders.','Security communications and operational reporting.','Maritime security support for commercial shipping and offshore operations']
     },
     {
       id: '02',
-      title: 'Stowaway Search',
+      title: 'Stowaway Detection and Search',
       category: 'security',
       icon: <Search className="w-6 h-6 text-[#C89D4B]" />,
-      description: 'Methodical, discreet vessel sweeps that protect your crew, cargo, schedule, and port compliance.',
-      detailedDesc: 'Our specialized tactical search teams conduct exhaustive pre-departure stowaway sweeps across rudders, void spaces, engine rooms, and cargo holds. We deliver legal verification certificates to prevent costly port delays and heavy international penalties.',
+      description: 'Professional stowaway search services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders.',
+      detailedDesc: 'We offer Professional stowaway search services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders in identifying unauthorised persons and addressing associated security risks',
       image: '/stowaway.jpeg',
       badge: 'Port Compliance',
-      highlights: ['Exhaustive Void & Rudder Sweeps', 'Official Clearance Certification', 'Zero Port Delay Guarantee']
+      highlights: ['Pre-departure stowaway searches.', 'Incident escalation and coordination with appropriate authorities where necessary.', Search documentation and reporting', 'Systematic searches of designated vessel spaces.', 'Inspection of accessible compartments and other relevant locations.', 'Zero Port Delay Guarantee']
     },
     {
       id: '03',
