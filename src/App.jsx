@@ -81,7 +81,7 @@ export default function App() {
       icon: <Shield className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Purpose-ready marine assets and tactical teams for safe passage through high-risk waters and offshore zones.',
       detailedDesc: 'NaviTera provides armed and unarmed Security Escort Vessels (SEVs) fully compliant with international maritime security codes. Our crews are trained to maintain tactical perimeter defense, offering 24/7 protection for commercial tankers, FPSOs, and cargo ships operating in high-risk territorial waters.',
-      image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1200&q=80',
+      image: '/NaviTera Security Escort Vessel.png',
       badge: 'High Risk Zones',
       highlights: ['Armed & Unarmed Tactical Teams', '24/7 Radar & AIS Tracking', 'ISM & ISPS Compliant']
     },
@@ -92,7 +92,7 @@ export default function App() {
       icon: <Search className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Methodical, discreet vessel sweeps that protect your crew, cargo, schedule, and port compliance.',
       detailedDesc: 'Our specialized tactical search teams conduct exhaustive pre-departure stowaway sweeps across rudders, void spaces, engine rooms, and cargo holds. We deliver legal verification certificates to prevent costly port delays and heavy international penalties.',
-      image: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80',
+      image: '/stowaway.jpeg',
       badge: 'Port Compliance',
       highlights: ['Exhaustive Void & Rudder Sweeps', 'Official Clearance Certification', 'Zero Port Delay Guarantee']
     },
@@ -103,7 +103,7 @@ export default function App() {
       icon: <Ship className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Flexible access to vetted marine vessels, operational equipment, and dependable offshore support.',
       detailedDesc: 'We maintain an extensive network of charter-ready maritime assets, including Platform Supply Vessels (PSVs), Anchor Handling Tug Supply (AHTS) vessels, fast crew supply boats, and heavy-duty deck gear custom-fitted to your specific offshore requirements.',
-      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
+      image: '/Marine-Offshore-Equipment-Trading.jpg',
       badge: 'Asset Management',
       highlights: ['PSVs & AHTS Fleet Access', 'Custom Deck Equipment Outfitting', 'Fully Vetted Crews & Hulls']
     },
@@ -125,7 +125,7 @@ export default function App() {
       icon: <Compass className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Comprehensive static and dynamic security architectures tailored for FPSOs, rigs, and marine terminals.',
       detailedDesc: 'Delivering end-to-end maritime defense strategies, physical vessel hardening, remote surveillance integration, and fast-response escort boats to safeguard critical energy infrastructure and offshore drilling rigs against modern maritime threats.',
-      image: 'https://images.unsplash.com/photo-1569263979104-865ab7cd8d13?auto=format&fit=crop&w=1200&q=80',
+      image: '/vessel protection.jpeg',
       badge: 'Tactical Defense',
       highlights: ['FPSO & Rig Hardening', 'Remote Surveillance Integration', 'Rapid Intervention Craft']
     }
