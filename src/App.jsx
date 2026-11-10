@@ -561,7 +561,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Headquarters</span>
-                    <span className="text-sm text-slate-300">Victoria Island, Lagos, Nigeria</span>
+                    <span className="text-sm text-slate-300">Suite 10, Kingdom Plaza, Plot 784, Festac Link Bridge, Amuwo Odofin Lagos.</span>
                   </div>
                 </div>
 
@@ -632,7 +632,7 @@ export default function App() {
                         type="text"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        placeholder="+1 (555) 000-0000"
+                        placeholder="+234 806 711 1865, +234 803 110 5222"
                         className="w-full bg-stone-50 border-b-2 border-stone-300 focus:border-[#C89D4B] px-4 py-3 text-sm text-[#0B1924] outline-none"
                       />
                     </div>
