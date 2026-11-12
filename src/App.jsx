@@ -451,7 +451,7 @@ NaviTera Frontiers Solutions is committed to strengthening maritime security thr
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="max-w-3xl mb-16">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C89D4B]">OUR OPERATING STANDARD</span>
-            <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">Preparedness <br /><span className="font-light">Accountability Technology experience</span></h2>
+            <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">Preparedness | <br /><span className="font-light">Accountability|Technology experience |</span></h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
