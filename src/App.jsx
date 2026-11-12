@@ -10,6 +10,7 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeServiceTab, setActiveServiceTab] = useState('all');
   const [selectedService, setSelectedService] = useState(null);
+  const [selectedBlogPost, setSelectedBlogPost] = useState(null); // State for Blog Modal
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [whatsappOpen, setWhatsappOpen] = useState(false);
   const [whatsappMessage, setWhatsappMessage] = useState('');
@@ -93,6 +94,28 @@ export default function App() {
     }
   ];
 
+  // Dummy Blog Posts Data
+  const blogPosts = [
+    {
+      id: 'post-1',
+      title: 'Enhancing Vessel Security in High-Risk West African Waters',
+      date: 'November 10, 2026',
+      readTime: '4 min read',
+      image: '/NaviTera Security Escort Vessel.png', // Image space placeholder
+      briefContent: 'An in-depth look at modern coordination strategies, tactical escort positioning, and compliance standards needed to safeguard merchant vessels navigating regional corridors.',
+      fullContent: 'Navigating through high-risk waters requires more than standard protocol; it demands a dynamic, multi-layered approach to threat mitigation. At NaviTera Frontiers Solutions, we emphasize synchronized communication between commercial bridge teams and armed escort vessels. This article explores how real-time intelligence sharing, pre-transit risk assessments, and rigorous adherence to ISPS codes dramatically reduce operational vulnerabilities. By maintaining strict formation discipline and rapid-response capabilities, shipowners can protect valuable cargo and ensure crew safety across complex maritime routes.'
+    },
+    {
+      id: 'post-2',
+      title: 'Zero Port Delay: The Role of AI Drones & K9 Units in Stowaway Audits',
+      date: 'October 28, 2026',
+      readTime: '5 min read',
+      image: '/stowaway.jpeg', // Image space placeholder
+      briefContent: 'Discover how integrating intrinsically safe AI-powered drones and specialized K9 units optimizes pre-departure inspections without disrupting port schedules.',
+      fullContent: 'Stowaway attempts present significant financial and legal risks to vessel operators. Traditional manual searches are often time-consuming and prone to blind spots in complex compartments. By integrating advanced technology—such as intrinsically safe AI-powered thermal drones and highly trained K9 detection units managed by professional handlers—NaviTera delivers thorough pre-departure sweeps with absolute precision. This modern methodology ensures zero port delays while guaranteeing full regulatory compliance and complete peace of mind for ship managers.'
+    }
+  ];
+
   const filteredServices = activeServiceTab === 'all'
     ? services
     : services.filter(s => s.category === activeServiceTab);
@@ -136,6 +159,7 @@ export default function App() {
             <button onClick={() => scrollToSection('about')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">About</button>
             <button onClick={() => scrollToSection('services')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">Services</button>
             <button onClick={() => scrollToSection('operations')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">Operations</button>
+            <button onClick={() => scrollToSection('insights')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">Insights</button>
             <button onClick={() => scrollToSection('contact')} className="text-slate-300 hover:text-[#C89D4B] transition-colors">Contact</button>
           </nav>
           <div className="hidden md:flex items-center">
@@ -158,6 +182,7 @@ export default function App() {
             <button onClick={() => scrollToSection('about')} className="block w-full text-left py-2 text-slate-200">About</button>
             <button onClick={() => scrollToSection('services')} className="block w-full text-left py-2 text-slate-200">Services</button>
             <button onClick={() => scrollToSection('operations')} className="block w-full text-left py-2 text-slate-200">Operations</button>
+            <button onClick={() => scrollToSection('insights')} className="block w-full text-left py-2 text-slate-200">Insights</button>
             <button onClick={() => scrollToSection('contact')} className="block w-full text-left py-2 text-slate-200">Contact</button>
             <button onClick={() => scrollToSection('contact')} className="w-full mt-2 bg-[#C89D4B] text-white py-3 font-semibold text-center">Request a service</button>
           </div>
@@ -432,6 +457,71 @@ export default function App() {
         </div>
       </section>
 
+      {/* BLOG / INSIGHTS SECTION */}
+      <section id="insights" className="bg-[#050D14] text-white py-24 border-t border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 pb-8 border-b border-slate-800">
+            <div>
+              <div className="flex items-center space-x-3 mb-3">
+                <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
+                <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C89D4B]">MARITIME INSIGHTS & UPDATES</span>
+              </div>
+              <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white">Latest Articles & Resources</h2>
+            </div>
+            <p className="mt-4 lg:mt-0 text-slate-400 max-w-md text-sm sm:text-base font-light">
+              Expert perspectives on maritime security, stowaway prevention, and offshore operational safety.
+            </p>
+          </div>
+
+          {/* Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {blogPosts.map((post) => (
+              <div
+                key={post.id}
+                onClick={() => setSelectedBlogPost(post)}
+                className="group bg-[#0A131B] border border-slate-800 rounded-xl overflow-hidden cursor-pointer flex flex-col justify-between transition-all duration-300 hover:border-[#C89D4B]/60 hover:shadow-xl hover:-translate-y-1"
+              >
+                {/* Image Space for Blog Post */}
+                <div className="relative h-52 sm:h-60 w-full overflow-hidden bg-slate-900 border-b border-slate-800">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => { e.target.src = 'https://placehold.co/600x400/0B1924/C89D4B?text=NaviTera+Insight'; }}
+                  />
+                  <div className="absolute top-4 left-4 bg-[#0B1924]/90 backdrop-blur-sm border border-slate-700 text-[#C89D4B] text-[10px] font-mono font-bold uppercase px-3 py-1 rounded">
+                    {post.readTime}
+                  </div>
+                </div>
+
+                {/* Content Area */}
+                <div className="p-8 flex flex-col justify-between flex-grow">
+                  <div>
+                    <span className="text-xs font-mono text-slate-400 block mb-2">{post.date}</span>
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 group-hover:text-[#C89D4B] transition-colors leading-snug">
+                      {post.title}
+                    </h3>
+                    <p className="text-slate-300 text-sm font-light leading-relaxed mb-6">
+                      {post.briefContent}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#C89D4B]">
+                    <span className="flex items-center space-x-2 group-hover:translate-x-1 transition-transform">
+                      <span>Read full article</span>
+                      <ChevronRight className="w-4 h-4" />
+                    </span>
+                    <div className="w-8 h-8 rounded-full border border-slate-700 bg-slate-900 flex items-center justify-center text-white group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
+                      <ArrowUpRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CONTACT & INQUIRY SECTION */}
       <section id="contact" className="bg-[#0A131B] text-white py-24 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
@@ -637,6 +727,7 @@ export default function App() {
                 <li><button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors flex items-center space-x-1"><span>About NaviTera</span></button></li>
                 <li><button onClick={() => scrollToSection('services')} className="hover:text-white transition-colors flex items-center space-x-1"><span>Marine Services</span></button></li>
                 <li><button onClick={() => scrollToSection('operations')} className="hover:text-white transition-colors flex items-center space-x-1"><span>Operating Standards</span></button></li>
+                <li><button onClick={() => scrollToSection('insights')} className="hover:text-white transition-colors flex items-center space-x-1"><span>Insights</span></button></li>
                 <li><button onClick={() => scrollToSection('contact')} className="hover:text-white transition-colors flex items-center space-x-1"><span>Request Service / Contact</span></button></li>
               </ul>
             </div>
@@ -733,6 +824,57 @@ export default function App() {
                   className="w-full sm:w-auto text-xs text-slate-400 hover:text-white border border-slate-700 hover:border-slate-500 px-5 py-3 uppercase tracking-wider font-semibold transition-colors"
                 >
                   Close overview
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* DETAILED BLOG POST MODAL */}
+      {selectedBlogPost && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
+          <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white overflow-hidden shadow-2xl relative rounded-xl">
+            {/* Modal Header */}
+            <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-[#0A131B]">
+              <div className="flex items-center space-x-3">
+                <span className="text-xs font-mono text-[#C89D4B]">{selectedBlogPost.date}</span>
+                <span className="text-[10px] uppercase font-bold tracking-widest text-[#C89D4B] px-2.5 py-0.5 border border-[#C89D4B]/30 bg-[#C89D4B]/10 rounded">
+                  {selectedBlogPost.readTime}
+                </span>
+              </div>
+              <button 
+                onClick={() => setSelectedBlogPost(null)} 
+                className="text-slate-400 hover:text-white hover:bg-slate-800 p-2 rounded-full transition-colors"
+                aria-label="Close modal"
+              >
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
+              <div className="relative h-48 sm:h-64 overflow-hidden border border-slate-800 rounded">
+                <img 
+                  src={selectedBlogPost.image} 
+                  alt={selectedBlogPost.title} 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">{selectedBlogPost.title}</h3>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light whitespace-pre-line">
+                  {selectedBlogPost.fullContent}
+                </p>
+              </div>
+
+              {/* Modal Footer Controls */}
+              <div className="pt-4 border-t border-slate-800 flex justify-end">
+                <button 
+                  onClick={() => setSelectedBlogPost(null)} 
+                  className="w-full sm:w-auto text-xs text-slate-400 hover:text-white border border-slate-700 hover:border-slate-500 px-6 py-3 uppercase tracking-wider font-semibold transition-colors"
+                >
+                  Close article
                 </button>
               </div>
             </div>
