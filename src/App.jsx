@@ -97,7 +97,7 @@ export default function App() {
       category: 'security',
       icon: <Search className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Professional stowaway search services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders.',
-      detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard vessels',
+      detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard vessels unauthorized persons concealed onboard vessels using intrinsically safe AI powered drones, k9 sniffer dogs and police handlers in our operations.',
       image: '/stowaway.jpeg',
       badge: 'Port Compliance',
       highlights: [
@@ -305,7 +305,7 @@ export default function App() {
               </h2>
             </div>
             <p className="mt-6 lg:mt-0 text-slate-400 max-w-md text-sm sm:text-base leading-relaxed text-left font-light">
-              We are trusted regional and international provider of integrated maritime security, offshore protection, and marine support services, recognised for operational excellence, professional integrity, and innovative solutions.
+              We are trusted Nigerian provider of integrated maritime security, offshore protection, and marine support services, recognised for operational excellence, professional integrity, and innovative solutions.
             </p>
           </div>
 
@@ -422,7 +422,7 @@ export default function App() {
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0B1924] tracking-tight leading-tight"></h2>
               <p className="text-stone-700 leading-relaxed text-base sm:text-lg font-light">
-                NaviTera is a premier maritime services company engineered to resolve complex offshore, security, and commercial challenges across West African waters with absolute clarity, speed, and command control.
+                NaviTera Frontiers Solutions is an emerging maritime security and marine support company being developed to address the evolving security and operational needs of the maritime, offshore, and related commercial sectors. Our vision is to establish a trusted service provider focused on protecting people, vessels, cargo, and critical maritime assets through professional security solutions, risk management, operational coordination, and strategic industry partnerships..
               </p>
               <p className="text-stone-600 leading-relaxed text-sm sm:text-base">
                 Operating strictly within international maritime security protocols, ISM, and ISPS codes, we serve global shipping lines, energy majors, and offshore terminal operators with unwavering reliability.
@@ -456,8 +456,8 @@ export default function App() {
           <div className="max-w-3xl mb-16">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C89D4B]">OUR OPERATING STANDARD</span>
             <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">
-              Preparedness, <br />
-              <span className="font-light">Accountability.</span>
+              Preparedness <br />
+              <span className="font-light">Accountability Technology experience</span>
             </h2>
           </div>
 
@@ -519,7 +519,7 @@ export default function App() {
                   </div>
                   <div>
                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Command Operations Hotline</span>
-                    <span className="text-base font-mono text-white">+234 806 711 1865, +234 803 110 5222</span>
+                    <span className="text-base font-mono text-white">+234 8067111865, +234 8031105222, +234 8153043160</span>
                   </div>
                 </div>
 
@@ -673,7 +673,7 @@ export default function App() {
                 <span className="text-xl font-bold text-white tracking-tight">NaviTera</span>
               </div>
               <p className="text-sm text-slate-400 leading-relaxed max-w-sm font-light">
-                Integrated maritime services engineered for safety, compliance, and swift operational deployment across West African waters and international shipping lanes.
+                Integrated maritime services engineered for safety, compliance, and swift operational deployment across Nigerian waters and  shipping lanes.
               </p>
               <div className="pt-2 flex items-center space-x-4">
                 <a
