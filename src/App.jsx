@@ -65,7 +65,7 @@ export default function App() {
       category: 'security',
       icon: <Search className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Professional stowaway search services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders.',
-      detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers,vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard vessels unauthorized persons concealed onboard vessels using intrinsically safe AI powered drones, k9 sniffer dogs and police handlers in our operations.',
+      detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers,vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard using intrinsically safe AI powered drones, k9 sniffer dogs and police handlers in our operations.',
       image: '/stowaway.jpeg',
       badge: 'Port Compliance',
       highlights: [
