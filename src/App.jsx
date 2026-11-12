@@ -65,7 +65,7 @@ export default function App() {
       category: 'security',
       icon: <Search className="w-6 h-6 text-[#C89D4B]" />,
       description: 'Professional stowaway search services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders.',
-      detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers,vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard using intrinsically safe AI powered drones, k9 sniffer dogs and police handlers in our operations.',
+      detailedDesc: 'NaviTera Frontiers Solutions specialises in stowaway detection and maritime security inspection services designed to assist shipowners, ship managers, vessel operators, and other maritime stakeholders in identifying unauthorised persons concealed onboard using intrinsically safe AI powered drones, k9 sniffer dogs and police handlers in our operations.',
       image: '/stowaway.jpeg',
       badge: 'Port Compliance',
       highlights: [
@@ -109,7 +109,7 @@ export default function App() {
 A stowaway is generally understood as a person who clandestinely boards a vessel without the consent of the shipowner, master or other authorised persons, with the intention of travelling onboard without paying for passage or obtaining the necessary authorisation[cite: 8].
 
 1. THE IMPACT OF STOWAWAYS ON VESSELS
-Stowaway incidents can have far-reaching consequences for vessels, their owners, operators and crew[cite: 8]. 
+Stowaway incidents can have far-reaching consequences for vessels, their owners, operators and crew[cite: 8].
 - Safety and Security Risks: Unauthorised persons onboard can compromise security arrangements and create threats to crew safety, vessel operations and cargo security[cite: 8].
 - Economic and Financial Implications: Substantial financial losses including vessel detention, port calls, legal expenses, repatriation costs, and schedule disruptions[cite: 8].
 - Operational Disruptions: Interruption of normal operations, possible vessel diversion, or remaining at anchorage while authorities investigate[cite: 8].
@@ -446,13 +446,71 @@ NaviTera Frontiers Solutions is committed to strengthening maritime security thr
         </div>
       </section>
 
-      {/* OPERATIONS */}
+      {/* OPERATIONS SECTION WITH MULTI-WINDOW PILLARS DESIGN */}
       <section id="operations" className="bg-[#0B1924] text-white py-24 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="max-w-3xl mb-16">
             <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#C89D4B]">OUR OPERATING STANDARD</span>
-            <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">Preparedness | <br /><span className="font-light">Accountability|Technology experience |</span></h2>
+            <h2 className="text-3xl sm:text-5xl font-light mt-2 tracking-tight">Core Pillars of Excellence</h2>
           </div>
+
+          {/* Three Distinct Windows / Boxes for Preparedness | Accountability | Technology Experience */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {/* Window 1: Preparedness */}
+            <div className="bg-[#0A131B] border border-slate-800 rounded-xl p-8 flex flex-col justify-between hover:border-[#C89D4B]/60 transition-all shadow-xl group">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs font-mono font-bold text-[#C89D4B] bg-[#C89D4B]/10 px-3 py-1 border border-[#C89D4B]/20 rounded-md">PILLAR 01</span>
+                  <Shield className="w-5 h-5 text-[#C89D4B]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#C89D4B] transition-colors">Preparedness</h3>
+                <p className="text-slate-300 text-sm leading-relaxed font-light">
+                  Continuous operational readiness, proactive risk analysis, and preemptive tactical positioning to handle high-risk maritime contingencies before they arise.
+                </p>
+              </div>
+              <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>Status: 24/7 Active</span>
+                <CheckCircle2 className="w-4 h-4 text-[#C89D4B]" />
+              </div>
+            </div>
+
+            {/* Window 2: Accountability */}
+            <div className="bg-[#0A131B] border border-slate-800 rounded-xl p-8 flex flex-col justify-between hover:border-[#C89D4B]/60 transition-all shadow-xl group">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs font-mono font-bold text-[#C89D4B] bg-[#C89D4B]/10 px-3 py-1 border border-[#C89D4B]/20 rounded-md">PILLAR 02</span>
+                  <Award className="w-5 h-5 text-[#C89D4B]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#C89D4B] transition-colors">Accountability</h3>
+                <p className="text-slate-300 text-sm leading-relaxed font-light">
+                  Absolute transparency, strict adherence to international ISM & ISPS security codes, and thorough reporting across all vessel escort and search operations.
+                </p>
+              </div>
+              <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>Status: Certified</span>
+                <CheckCircle2 className="w-4 h-4 text-[#C89D4B]" />
+              </div>
+            </div>
+
+            {/* Window 3: Technology Experience */}
+            <div className="bg-[#0A131B] border border-slate-800 rounded-xl p-8 flex flex-col justify-between hover:border-[#C89D4B]/60 transition-all shadow-xl group">
+              <div>
+                <div className="flex items-center justify-between mb-6">
+                  <span className="text-xs font-mono font-bold text-[#C89D4B] bg-[#C89D4B]/10 px-3 py-1 border border-[#C89D4B]/20 rounded-md">PILLAR 03</span>
+                  <Search className="w-5 h-5 text-[#C89D4B]" />
+                </div>
+                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-[#C89D4B] transition-colors">Technology Experience</h3>
+                <p className="text-slate-300 text-sm leading-relaxed font-light">
+                  Leveraging cutting-edge tools including intrinsically safe AI-powered thermal drones, K9 handler coordination, and real-time vessel tracking systems.
+                </p>
+              </div>
+              <div className="mt-8 pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                <span>Status: Advanced</span>
+                <CheckCircle2 className="w-4 h-4 text-[#C89D4B]" />
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { step: '01', title: 'Assess', desc: 'Pre-deployment analysis of routes, timings, risk profiles, and compliance requirements.' },
