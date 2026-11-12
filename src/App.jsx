@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {ArrowUpRight,CheckCircle2,Menu,X,Shield,Search,Ship,TrendingUp,Compass,Phone,Mail,MapPin,Clock,ChevronRight,Activity,Award,Layers} from 'lucide-react';
+import {ArrowUpRight,CheckCircle2,Menu,X,Shield,Search,Ship,TrendingUp,Compass,Phone,Mail,MapPin,Clock,ChevronRight,Activity,Award,Layers,Share2,Copy,Check} from 'lucide-react';
 
 // Custom inline SVG icons for reliable social media rendering without dependency errors
 const FacebookIcon = ({ className = "w-4 h-4" }) => (<svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>);
@@ -11,6 +11,7 @@ export default function App() {
   const [activeServiceTab, setActiveServiceTab] = useState('all');
   const [selectedService, setSelectedService] = useState(null);
   const [selectedBlogPost, setSelectedBlogPost] = useState(null); // State for Blog Modal
+  const [copiedId, setCopiedId] = useState(null); // State for copy link feedback
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [whatsappOpen, setWhatsappOpen] = useState(false);
   const [whatsappMessage, setWhatsappMessage] = useState('');
@@ -94,27 +95,60 @@ export default function App() {
     }
   ];
 
-  // Dummy Blog Posts Data
+  // Blog Posts Data (Post 1 updated with attached document content)
   const blogPosts = [
     {
       id: 'post-1',
-      title: 'Enhancing Vessel Security in High-Risk West African Waters',
-      date: 'November 10, 2026',
-      readTime: '4 min read',
-      image: '/NaviTera Security Escort Vessel.png', // Image space placeholder
-      briefContent: 'An in-depth look at modern coordination strategies, tactical escort positioning, and compliance standards needed to safeguard merchant vessels navigating regional corridors.',
-      fullContent: 'Navigating through high-risk waters requires more than standard protocol; it demands a dynamic, multi-layered approach to threat mitigation. At NaviTera Frontiers Solutions, we emphasize synchronized communication between commercial bridge teams and armed escort vessels. This article explores how real-time intelligence sharing, pre-transit risk assessments, and rigorous adherence to ISPS codes dramatically reduce operational vulnerabilities. By maintaining strict formation discipline and rapid-response capabilities, shipowners can protect valuable cargo and ensure crew safety across complex maritime routes.'
+      title: 'Seaport Stowaways: The Impact on Vessel Security, Maritime Operations and Flag States',
+      date: 'November 12, 2026',
+      readTime: '6 min read',
+      image: '/stowaway.jpeg',
+      briefContent: 'Understanding the Risks, Challenges, Prevention Strategies and Response Measures in the Global Maritime Industry.',
+      fullContent: `Seaport stowaways remain a significant challenge to the global maritime industry, presenting serious security, operational, financial and regulatory concerns for shipowners, vessel operators, port authorities, crew members and flag states[cite: 8].
+
+A stowaway is generally understood as a person who clandestinely boards a vessel without the consent of the shipowner, master or other authorised persons, with the intention of travelling onboard without paying for passage or obtaining the necessary authorisation[cite: 8].
+
+1. THE IMPACT OF STOWAWAYS ON VESSELS
+Stowaway incidents can have far-reaching consequences for vessels, their owners, operators and crew[cite: 8]. 
+- Safety and Security Risks: Unauthorised persons onboard can compromise security arrangements and create threats to crew safety, vessel operations and cargo security[cite: 8].
+- Economic and Financial Implications: Substantial financial losses including vessel detention, port calls, legal expenses, repatriation costs, and schedule disruptions[cite: 8].
+- Operational Disruptions: Interruption of normal operations, possible vessel diversion, or remaining at anchorage while authorities investigate[cite: 8].
+
+2. THE IMPACT OF STOWAWAYS ON FLAG STATES
+Flag states have important responsibilities in maintaining maritime safety, security and regulatory compliance[cite: 8].
+- Repetitive incidents raise concerns about the effectiveness of maritime security oversight and regulatory enforcement[cite: 8].
+- Additional administrative and operational costs when investigating incidents and supporting repatriation matters[cite: 8].
+
+3. PREVENTION, DETECTION AND RESPONSE STRATEGIES
+Effective stowaway management requires a proactive and coordinated approach[cite: 8]:
+- Effective Access Control and Surveillance: Strict gangway access control, proper visitor identification, continuous monitoring, and CCTV usage[cite: 8].
+- Crew Training and Security Awareness: Equipping crew members to identify suspicious activities and conduct thorough pre-departure inspections[cite: 8].
+- Intelligence Gathering and Information Sharing: Timely information sharing among shipping companies, port authorities, and security agencies[cite: 8].
+- Technology-Driven Maritime Security: Integration of digital reporting, vessel tracking, and CCTV monitoring[cite: 8].
+
+4. RESPONSE AND MANAGEMENT OF STOWAWAY INCIDENTS
+Upon discovering a suspected stowaway, master and security personnel must secure the area, ensure individual welfare, notify the company security officer, establish identity, maintain records, and coordinate with competent authorities[cite: 8].
+
+NaviTera Frontiers Solutions is committed to strengthening maritime security through intelligence, operational coordination, technology and professional maritime protection solutions[cite: 8].`
     },
     {
       id: 'post-2',
       title: 'Zero Port Delay: The Role of AI Drones & K9 Units in Stowaway Audits',
       date: 'October 28, 2026',
       readTime: '5 min read',
-      image: '/stowaway.jpeg', // Image space placeholder
+      image: '/NaviTera Security Escort Vessel.png',
       briefContent: 'Discover how integrating intrinsically safe AI-powered drones and specialized K9 units optimizes pre-departure inspections without disrupting port schedules.',
       fullContent: 'Stowaway attempts present significant financial and legal risks to vessel operators. Traditional manual searches are often time-consuming and prone to blind spots in complex compartments. By integrating advanced technology—such as intrinsically safe AI-powered thermal drones and highly trained K9 detection units managed by professional handlers—NaviTera delivers thorough pre-departure sweeps with absolute precision. This modern methodology ensures zero port delays while guaranteeing full regulatory compliance and complete peace of mind for ship managers.'
     }
   ];
+
+  const handleCopyLink = (postId, e) => {
+    e.stopPropagation();
+    const postUrl = `${window.location.origin}#${postId}`;
+    navigator.clipboard.writeText(postUrl);
+    setCopiedId(postId);
+    setTimeout(() => setCopiedId(null), 3000);
+  };
 
   const filteredServices = activeServiceTab === 'all'
     ? services
@@ -230,11 +264,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* REDESIGNED STATS BAR SECTION */}
+      {/* STATS BAR SECTION */}
       <section className="relative z-20 -mt-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="bg-gradient-to-r from-[#0A131B] via-[#0E1F2E] to-[#0A131B] border border-[#C89D4B]/30 rounded-2xl shadow-2xl p-8 sm:p-10 backdrop-blur-xl">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-800/80">
-            {/* Stat Item 1 */}
             <div className="pt-4 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
               <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
                 <Activity className="w-6 h-6" />
@@ -248,7 +281,6 @@ export default function App() {
                 <span className="text-xs text-slate-400 block mt-0.5 font-light">Continuous response & deployment</span>
               </div>
             </div>
-            {/* Stat Item 2 */}
             <div className="pt-6 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
               <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
                 <Award className="w-6 h-6" />
@@ -262,7 +294,6 @@ export default function App() {
                 <span className="text-xs text-slate-400 block mt-0.5 font-light">Surveillance, Security Escort, & Advance Stowaway Search</span>
               </div>
             </div>
-            {/* Stat Item 3 */}
             <div className="pt-6 md:pt-0 md:px-6 flex items-start space-x-4 group transition-transform hover:-translate-y-1">
               <div className="w-12 h-12 rounded-xl bg-[#C89D4B]/10 border border-[#C89D4B]/30 flex items-center justify-center text-[#C89D4B] shrink-0 group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
                 <Layers className="w-6 h-6" />
@@ -280,26 +311,23 @@ export default function App() {
         </div>
       </section>
 
-      {/* REDESIGNED SERVICES SECTION */}
+      {/* SERVICES SECTION */}
       <section id="services" className="bg-[#050D14] text-white py-28 relative overflow-hidden">
-        {/* Subtle background glow effects */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C89D4B]/5 rounded-full blur-3xl pointer-events-none" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 pb-8 border-b border-slate-800 text-left">
             <div>
               <div className="flex items-center space-x-3 mb-4">
                 <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
                 <span className="text-xs uppercase tracking-[0.3em] font-bold text-[#C89D4B]">OUR SERVICES</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white">Integrated Maritime Solutions <span className="font-bold text-[#C89D4B]"></span></h2>
+              <h2 className="text-3xl sm:text-5xl font-light tracking-tight text-white">Integrated Maritime Solutions</h2>
             </div>
             <p className="mt-6 lg:mt-0 text-slate-400 max-w-md text-sm sm:text-base leading-relaxed text-left font-light">
               We are trusted Nigerian provider of integrated maritime security, offshore protection, and marine support services, recognised for operational excellence, professional integrity, and innovative solutions.
             </p>
           </div>
 
-          {/* Interactive Category Filter Tabs */}
           <div className="flex flex-wrap gap-3 mb-16">
             {[
               { id: 'all', label: 'All Capabilities' },
@@ -321,7 +349,6 @@ export default function App() {
             ))}
           </div>
 
-          {/* Bento Grid / Modern Cards Layout */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredServices.map((service, index) => (
               <div
@@ -331,7 +358,6 @@ export default function App() {
                   index === 0 ? 'lg:col-span-2' : ''
                 }`}
               >
-                {/* Background Image with Cinematic Overlay */}
                 <div className="absolute inset-0 z-0 overflow-hidden">
                   <img 
                     src={service.image} 
@@ -341,18 +367,15 @@ export default function App() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A131B] via-[#0A131B]/90 to-[#0A131B]/40" />
                 </div>
 
-                {/* Card Top: ID & Badge */}
                 <div className="relative z-10 flex justify-between items-center mb-12">
                   <span className="text-sm font-mono font-bold text-[#C89D4B] bg-[#C89D4B]/10 px-3 py-1 border border-[#C89D4B]/20 rounded-md">DIV {service.id}</span>
                   <span className="inline-block px-3 py-1 text-[10px] uppercase tracking-wider font-bold bg-slate-800/80 text-slate-300 border border-slate-700 rounded-md">{service.badge}</span>
                 </div>
 
-                {/* Card Middle: Title & Description */}
                 <div className="relative z-10 text-left mb-8">
                   <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 group-hover:text-[#C89D4B] transition-colors leading-tight">{service.title}</h3>
                   <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed mb-6">{service.description}</p>
                   
-                  {/* Highlights Mini Chips */}
                   <div className="flex flex-wrap gap-2 pt-2">
                     {service.highlights.slice(0, 2).map((h, i) => (
                       <span key={i} className="text-[11px] font-medium bg-slate-900/80 text-slate-300 px-2.5 py-1 rounded border border-slate-800">✓ {h}</span>
@@ -360,7 +383,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Card Bottom: Action Link */}
                 <div className="relative z-10 pt-6 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#C89D4B]">
                   <span className="group-hover:translate-x-1 transition-transform flex items-center space-x-2">
                     <span>View full specifications</span>
@@ -380,7 +402,6 @@ export default function App() {
       <section id="about" className="bg-white text-[#0B1924] py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-            {/* Visual Image Container with Click & Hover Zoom Effects */}
             <div className="lg:col-span-5 relative">
               <div className="relative z-10 bg-[#0B1924] p-2 shadow-2xl rounded-lg overflow-hidden group cursor-pointer">
                 <img 
@@ -392,21 +413,18 @@ export default function App() {
               <div className="absolute -top-4 -left-4 w-full h-full border-2 border-[#C89D4B] -z-0 hidden sm:block rounded-lg" />
             </div>
 
-            {/* Content Column */}
             <div className="lg:col-span-7 space-y-6">
               <div className="flex items-center space-x-3 mb-2">
                 <span className="w-10 h-[2px] bg-[#C89D4B]"></span>
                 <span className="text-xs uppercase tracking-[0.25em] font-extrabold text-[#b0883d]">ABOUT NAVITERRA MARITIME</span>
               </div>
-              <h2 className="text-3xl sm:text-5xl font-extrabold text-[#0B1924] tracking-tight leading-tight"></h2>
               <p className="text-stone-700 leading-relaxed text-base sm:text-lg font-light">
-                NaviTera Frontiers Solutions is an emerging maritime security and marine support company being developed to address the evolving security and operational needs of the maritime, offshore, and related commercial sectors. Our vision is to establish a trusted service provider focused on protecting people, vessels, cargo, andcritical maritime assets through professional security solutions, risk management, operational coordination, and strategic industry partnerships..
+                NaviTera Frontiers Solutions is an emerging maritime security and marine support company being developed to address the evolving security and operational needs of the maritime, offshore, and related commercial sectors. Our vision is to establish a trusted service provider focused on protecting people, vessels, cargo, and critical maritime assets through professional security solutions, risk management, operational coordination, and strategic industry partnerships.
               </p>
               <p className="text-stone-600 leading-relaxed text-sm sm:text-base">
                 Operating strictly within international maritime security protocols, ISM, and ISPS codes, we serve global shipping lines, energy majors, and offshore terminal operators with unwavering reliability.
               </p>
 
-              {/* Grid Pillars */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-stone-200">
                 <div className="p-4 bg-stone-50 border border-stone-200 rounded-lg space-y-1">
                   <h4 className="font-bold text-sm text-[#0B1924] flex items-center space-x-2">
@@ -457,7 +475,7 @@ export default function App() {
         </div>
       </section>
 
-      {/* BLOG / INSIGHTS SECTION */}
+      {/* BLOG / INSIGHTS SECTION WITH ATTACHED ARTICLE & SOCIAL SHARING */}
       <section id="insights" className="bg-[#050D14] text-white py-24 border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
           <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-16 pb-8 border-b border-slate-800">
@@ -473,7 +491,6 @@ export default function App() {
             </p>
           </div>
 
-          {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {blogPosts.map((post) => (
               <div
@@ -481,7 +498,6 @@ export default function App() {
                 onClick={() => setSelectedBlogPost(post)}
                 className="group bg-[#0A131B] border border-slate-800 rounded-xl overflow-hidden cursor-pointer flex flex-col justify-between transition-all duration-300 hover:border-[#C89D4B]/60 hover:shadow-xl hover:-translate-y-1"
               >
-                {/* Image Space for Blog Post */}
                 <div className="relative h-52 sm:h-60 w-full overflow-hidden bg-slate-900 border-b border-slate-800">
                   <img
                     src={post.image}
@@ -494,7 +510,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Content Area */}
                 <div className="p-8 flex flex-col justify-between flex-grow">
                   <div>
                     <span className="text-xs font-mono text-slate-400 block mb-2">{post.date}</span>
@@ -506,13 +521,49 @@ export default function App() {
                     </p>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#C89D4B]">
-                    <span className="flex items-center space-x-2 group-hover:translate-x-1 transition-transform">
-                      <span>Read full article</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </span>
-                    <div className="w-8 h-8 rounded-full border border-slate-700 bg-slate-900 flex items-center justify-center text-white group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
-                      <ArrowUpRight className="w-4 h-4" />
+                  <div>
+                    {/* Social Share & Copy Link Toolbar */}
+                    <div className="flex items-center space-x-3 py-3 border-t border-slate-800/80 mb-4" onClick={(e) => e.stopPropagation()}>
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 flex items-center space-x-1">
+                        <Share2 className="w-3.5 h-3.5 text-[#C89D4B]" />
+                        <span>Share:</span>
+                      </span>
+                      <a 
+                        href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-slate-400 hover:text-white p-1.5 rounded bg-slate-900 border border-slate-800 hover:border-[#C89D4B] transition-colors text-xs font-mono"
+                        title="Share on X / Twitter"
+                      >
+                        X
+                      </a>
+                      <a 
+                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="text-slate-400 hover:text-white p-1.5 rounded bg-slate-900 border border-slate-800 hover:border-[#C89D4B] transition-colors"
+                        title="Share on LinkedIn"
+                      >
+                        <LinkedinIcon className="w-3.5 h-3.5" />
+                      </a>
+                      <button 
+                        onClick={(e) => handleCopyLink(post.id, e)}
+                        className="flex items-center space-x-1.5 px-2.5 py-1 rounded bg-slate-900 border border-slate-800 hover:border-[#C89D4B] text-slate-300 hover:text-white text-xs transition-colors"
+                        title="Copy Article Link"
+                      >
+                        {copiedId === post.id ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-[#C89D4B]" />}
+                        <span className="text-[11px] font-medium">{copiedId === post.id ? 'Copied!' : 'Copy Link'}</span>
+                      </button>
+                    </div>
+
+                    <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-xs font-bold uppercase tracking-wider text-[#C89D4B]">
+                      <span className="flex items-center space-x-2 group-hover:translate-x-1 transition-transform">
+                        <span>Read full article</span>
+                        <ChevronRight className="w-4 h-4" />
+                      </span>
+                      <div className="w-8 h-8 rounded-full border border-slate-700 bg-slate-900 flex items-center justify-center text-white group-hover:bg-[#C89D4B] group-hover:text-[#0B1924] transition-all">
+                        <ArrowUpRight className="w-4 h-4" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -768,7 +819,6 @@ export default function App() {
       {selectedService && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
           <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white overflow-hidden shadow-2xl relative rounded-xl">
-            {/* Modal Header with Close Button */}
             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-[#0A131B]">
               <div className="flex items-center space-x-3">
                 <span className="text-xs font-mono font-bold text-[#C89D4B]">DIV {selectedService.id}</span>
@@ -783,7 +833,6 @@ export default function App() {
               </button>
             </div>
 
-            {/* Modal Content */}
             <div className="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
               <div className="relative h-48 sm:h-64 overflow-hidden border border-slate-800 rounded">
                 <img 
@@ -806,7 +855,6 @@ export default function App() {
                 </ul>
               </div>
 
-              {/* Modal Footer Controls */}
               <div className="pt-4 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <button 
                   onClick={() => {
@@ -831,11 +879,10 @@ export default function App() {
         </div>
       )}
 
-      {/* DETAILED BLOG POST MODAL */}
+      {/* DETAILED BLOG POST MODAL WITH SOCIAL SHARING */}
       {selectedBlogPost && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
-          <div className="bg-[#0B1924] border border-slate-700 max-w-2xl w-full text-white overflow-hidden shadow-2xl relative rounded-xl">
-            {/* Modal Header */}
+          <div className="bg-[#0B1924] border border-slate-700 max-w-3xl w-full text-white overflow-hidden shadow-2xl relative rounded-xl">
             <div className="flex items-center justify-between p-6 border-b border-slate-800 bg-[#0A131B]">
               <div className="flex items-center space-x-3">
                 <span className="text-xs font-mono text-[#C89D4B]">{selectedBlogPost.date}</span>
@@ -852,7 +899,6 @@ export default function App() {
               </button>
             </div>
 
-            {/* Modal Body */}
             <div className="p-6 sm:p-8 space-y-6 max-h-[80vh] overflow-y-auto">
               <div className="relative h-48 sm:h-64 overflow-hidden border border-slate-800 rounded">
                 <img 
@@ -863,12 +909,43 @@ export default function App() {
               </div>
               <div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">{selectedBlogPost.title}</h3>
-                <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-light whitespace-pre-line">
+                
+                {/* Modal Social Share Toolbar */}
+                <div className="flex items-center space-x-3 py-3 px-4 bg-slate-900 border border-slate-800 rounded-lg mb-6">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400 flex items-center space-x-1">
+                    <Share2 className="w-3.5 h-3.5 text-[#C89D4B]" />
+                    <span>Share Article:</span>
+                  </span>
+                  <a 
+                    href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(selectedBlogPost.title)}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-slate-300 hover:text-white px-2 py-1 rounded bg-slate-800 border border-slate-700 hover:border-[#C89D4B] text-xs font-mono transition-colors"
+                  >
+                    X / Twitter
+                  </a>
+                  <a 
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="text-slate-300 hover:text-white px-2 py-1 rounded bg-slate-800 border border-slate-700 hover:border-[#C89D4B] text-xs transition-colors"
+                  >
+                    LinkedIn
+                  </a>
+                  <button 
+                    onClick={(e) => handleCopyLink(selectedBlogPost.id, e)}
+                    className="flex items-center space-x-1.5 px-3 py-1 rounded bg-slate-800 border border-slate-700 hover:border-[#C89D4B] text-slate-200 hover:text-white text-xs transition-colors"
+                  >
+                    {copiedId === selectedBlogPost.id ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5 text-[#C89D4B]" />}
+                    <span>{copiedId === selectedBlogPost.id ? 'Link Copied!' : 'Copy Link'}</span>
+                  </button>
+                </div>
+
+                <div className="text-slate-300 text-sm sm:text-base leading-relaxed font-light whitespace-pre-line space-y-4">
                   {selectedBlogPost.fullContent}
-                </p>
+                </div>
               </div>
 
-              {/* Modal Footer Controls */}
               <div className="pt-4 border-t border-slate-800 flex justify-end">
                 <button 
                   onClick={() => setSelectedBlogPost(null)} 
@@ -884,10 +961,8 @@ export default function App() {
 
       {/* FLOATING WHATSAPP CHATBOT */}
       <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        {/* WhatsApp Popup Window */}
         {whatsappOpen && (
           <div className="mb-4 w-80 sm:w-96 bg-[#0B1924] border border-slate-700 rounded-xl shadow-2xl overflow-hidden text-left animate-in fade-in slide-in-from-bottom-5 duration-300">
-            {/* Header */}
             <div className="bg-[#0A131B] border-b border-slate-800 p-4 flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
@@ -905,7 +980,6 @@ export default function App() {
                 <X className="w-5 h-5" />
               </button>
             </div>
-            {/* Body */}
             <div className="p-4 bg-[#080F16] space-y-3">
               <div className="bg-slate-800/80 p-3 rounded-lg text-xs text-slate-200 font-light border border-slate-700 max-w-[85%]">
                 Hello! Welcome to NaviTera. How can our maritime command desk assist you today?
@@ -929,7 +1003,6 @@ export default function App() {
             </div>
           </div>
         )}
-        {/* Floating Trigger Button */}
         <button 
           onClick={() => setWhatsappOpen(!whatsappOpen)}
           className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3.5 rounded-full shadow-2xl flex items-center space-x-3 transition-all duration-300 transform hover:scale-105 active:scale-95 border border-emerald-400/30"
