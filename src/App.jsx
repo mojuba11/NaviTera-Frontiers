@@ -639,7 +639,7 @@ NaviTera Frontiers Solutions is committed to strengthening maritime security thr
                   </div>
                   <div>
                     <span className="text-[10px] uppercase tracking-widest font-bold text-[#C89D4B] block">Command Operations Hotline</span>
-                    <span className="text-base font-mono text-white">+234 8067111865, +234 8031105222, +234 8153043160</span>
+                    <span className="text-base font-mono text-white">+2348153043160, +2348031105222</span>
                   </div>
                 </div>
 
